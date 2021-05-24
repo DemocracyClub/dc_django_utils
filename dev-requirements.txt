@@ -1,1 +1,6 @@
 isort
+black==21.5b1
+django-pipeline==2.0.6
+
+Django==2.2.23
+setuptools==57.0.0

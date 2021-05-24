@@ -1,8 +1,9 @@
-from dc_theme.forms import DCHeaderField
-from dc_theme.widgets import DayMonthYearWidget
 from django import forms, template
 from django.template import Context
 from django.template.loader import get_template
+
+from dc_utils.forms import DCHeaderField
+from dc_utils.widgets import DayMonthYearWidget
 
 register = template.Library()
 
