@@ -1,0 +1,30 @@
+{% load dc_forms %}
+{% if form.non_field_errors %}
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert">&times;</a>
+        {% for non_field_error in form.non_field_errors %}
+             {{ non_field_error }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% for field in form.hidden_fields %}
+    {{ field }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+    {% if field.errors %}<div class="error">{% endif %}
+        {% if field|is_dc_date_field %}
+          {% include 'dc_forms/field_date.html' %}
+        {% elif field|is_radio %}
+          {% include 'dc_forms/field_radio.html' %}
+        {% elif field|is_multiple_checkbox %}
+          {% include 'dc_forms/field_checkbox.html' %}
+        {% elif field|is_checkbox %}
+          {% include 'dc_forms/field_checkbox.html' %}
+        {% else %}
+          {% include 'dc_forms/field.html' %}
+        {% endif %}
+    {% if field.errors %}</div>{% endif %}
+{% endfor %}
+

@@ -1,0 +1,17 @@
+<div class="ds-field">
+    <label class="form-label-bold {% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
+        {{ field.label }}
+        {% if field.help_text %}
+            <span class="form-hint">{{ field.help_text }}</span>
+        {% endif %}
+        {% if field.errors %}
+            <span class="error-message">
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </span>
+
+        {% endif %}
+    {{ field }}
+    </label>
+</div>
