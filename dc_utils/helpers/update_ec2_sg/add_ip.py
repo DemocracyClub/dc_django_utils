@@ -22,7 +22,7 @@ def _get_client():
     return boto3.client("ec2")
 
 
-def get_security_group_id():
+def _get_security_group():
     config = _get_config()
     security_group_desc = config.get(
         "SETTINGS", "SECURITY_GROUP_DESC", fallback="ssh_from_dc_admins_ips"
@@ -34,7 +34,7 @@ def get_security_group_id():
                 "Values": [security_group_desc],
             }
         ]
-    )["SecurityGroups"][0]["GroupId"]
+    )["SecurityGroups"][0]
 
 
 def _format_ip_address(ip_address):
@@ -58,7 +58,7 @@ def remove_ip_from_security_group(ip_address=None):
         )
 
     return _get_client().revoke_security_group_ingress(
-        GroupId=get_security_group_id(),
+        GroupId=_get_security_group()["GroupId"],
         IpProtocol="tcp",
         FromPort=22,
         ToPort=22,
@@ -79,19 +79,8 @@ def add_ip_to_security_group():
         "SETTINGS", "IP_ADDRESS", fallback=requests.get("https://ifconfig.me").text
     )
     description = config.get("SETTINGS", "DESCRIPTION", fallback=getpass.getuser())
-    security_group_desc = config.get(
-        "SETTINGS", "SECURITY_GROUP_DESC", fallback="ssh_from_dc_admins_ips"
-    )
 
-    client = _get_client()
-    security_group = client.describe_security_groups(
-        Filters=[
-            {
-                "Name": "tag:description",
-                "Values": [security_group_desc],
-            }
-        ]
-    )["SecurityGroups"][0]
+    security_group = _get_security_group()
 
     ssh_ips = list(
         filter(lambda obj: obj["FromPort"] == 22, security_group["IpPermissions"])
@@ -105,7 +94,7 @@ def add_ip_to_security_group():
     if ip_to_remove:
         remove_ip_from_security_group(ip_address=ip_to_remove[0]["CidrIp"])
 
-    return client.authorize_security_group_ingress(
+    return _get_client().authorize_security_group_ingress(
         GroupId=security_group["GroupId"],
         IpPermissions=[
             {
