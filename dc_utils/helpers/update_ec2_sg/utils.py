@@ -1,11 +1,18 @@
+from email import message
 import boto3
 import configparser
 import getpass
 import os
 import requests
 
+from botocore.exceptions import BotoCoreError
 
-def _get_config():
+
+class InitBoto3ClientError(Exception):
+    pass
+
+
+def get_config():
     """
     Attempts to read a config file
     """
@@ -15,19 +22,22 @@ def _get_config():
     return config
 
 
-def _get_client():
+def get_client():
     """
     Get a boto3 ec2 client instance
     """
-    return boto3.client("ec2")
+    try:
+        return boto3.client("ec2")
+    except BotoCoreError:
+        raise InitBoto3ClientError("Have you configured your AWS_PROFILE correctly?")
 
 
-def _get_security_group():
-    config = _get_config()
+def get_security_group():
+    config = get_config()
     security_group_desc = config.get(
         "SETTINGS", "SECURITY_GROUP_DESC", fallback="ssh_from_dc_admins_ips"
     )
-    return _get_client().describe_security_groups(
+    return get_client().describe_security_groups(
         Filters=[
             {
                 "Name": "tag:description",
@@ -37,7 +47,7 @@ def _get_security_group():
     )["SecurityGroups"][0]
 
 
-def _format_ip_address(ip_address):
+def format_ip_address(ip_address):
     """
     Ensure IP address is formatted correctly.
     TODO allow range other formats?
@@ -52,17 +62,17 @@ def remove_ip_from_security_group(ip_address=None):
     Removes an IP address from the security group ingress rules.
     """
     if not ip_address:
-        config = _get_config()
+        config = get_config()
         ip_address = config.get(
             "SETTINGS", "IP_ADDRESS", fallback=requests.get("https://ifconfig.me").text
         )
 
-    return _get_client().revoke_security_group_ingress(
-        GroupId=_get_security_group()["GroupId"],
+    return get_client().revoke_security_group_ingress(
+        GroupId=get_security_group()["GroupId"],
         IpProtocol="tcp",
         FromPort=22,
         ToPort=22,
-        CidrIp=_format_ip_address(ip_address),
+        CidrIp=format_ip_address(ip_address),
     )
 
 
@@ -74,13 +84,13 @@ def add_ip_to_security_group():
     https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html.
     TODO add documentation for using config file
     """
-    config = _get_config()
+    config = get_config()
     ip_to_add = config.get(
         "SETTINGS", "IP_ADDRESS", fallback=requests.get("https://ifconfig.me").text
     )
     description = config.get("SETTINGS", "DESCRIPTION", fallback=getpass.getuser())
 
-    security_group = _get_security_group()
+    security_group = get_security_group()
 
     ssh_ips = list(
         filter(lambda obj: obj["FromPort"] == 22, security_group["IpPermissions"])
@@ -94,7 +104,7 @@ def add_ip_to_security_group():
     if ip_to_remove:
         remove_ip_from_security_group(ip_address=ip_to_remove[0]["CidrIp"])
 
-    return _get_client().authorize_security_group_ingress(
+    return get_client().authorize_security_group_ingress(
         GroupId=security_group["GroupId"],
         IpPermissions=[
             {
@@ -103,7 +113,7 @@ def add_ip_to_security_group():
                 "IpProtocol": "tcp",
                 "IpRanges": [
                     {
-                        "CidrIp": _format_ip_address(ip_to_add),
+                        "CidrIp": format_ip_address(ip_to_add),
                         "Description": description,
                     },
                 ],
