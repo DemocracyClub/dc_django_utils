@@ -1,4 +1,3 @@
-from email import message
 import boto3
 import configparser
 import getpass
@@ -57,15 +56,20 @@ def format_ip_address(ip_address):
     return ip_address
 
 
+def get_ip_address():
+    """
+    Uses requests to get users IP address
+    """
+    return requests.get("https://ifconfig.me").text
+
+
 def remove_ip_from_security_group(ip_address=None):
     """
     Removes an IP address from the security group ingress rules.
     """
     if not ip_address:
         config = get_config()
-        ip_address = config.get(
-            "SETTINGS", "IP_ADDRESS", fallback=requests.get("https://ifconfig.me").text
-        )
+        ip_address = config.get("SETTINGS", "IP_ADDRESS", fallback=get_ip_address())
 
     return get_client().revoke_security_group_ingress(
         GroupId=get_security_group()["GroupId"],
@@ -85,16 +89,18 @@ def add_ip_to_security_group():
     TODO add documentation for using config file
     """
     config = get_config()
-    ip_to_add = config.get(
-        "SETTINGS", "IP_ADDRESS", fallback=requests.get("https://ifconfig.me").text
-    )
+    ip_to_add = config.get("SETTINGS", "IP_ADDRESS", fallback=get_ip_address())
     description = config.get("SETTINGS", "DESCRIPTION", fallback=getpass.getuser())
 
     security_group = get_security_group()
 
-    ssh_ips = list(
-        filter(lambda obj: obj["FromPort"] == 22, security_group["IpPermissions"])
-    )[0]["IpRanges"]
+    try:
+        ssh_ips = list(
+            filter(lambda obj: obj["FromPort"] == 22, security_group["IpPermissions"])
+        )[0]["IpRanges"]
+    except IndexError:
+        ssh_ips = []
+
     ip_to_remove = list(
         filter(
             lambda obj: obj["Description"] == description,
