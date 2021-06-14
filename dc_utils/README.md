@@ -31,5 +31,5 @@ Add `dc_utils` to your `INSTALLED_APPS`
 `if settings.DEBUG:`
     `from dc_utils.urls import dc_utils_testing_patterns`
     `urlpatterns += dc_utils_testing_patterns`
-# Add to `requirements.txt':
-`pip install git+https://github.com/DemocracyClub/dc_django_utils.git`
+# Add the following line (with the version) to `requirements.txt':
+`git+https://github.com/DemocracyClub/dc_django_utils.git@[hash]`
