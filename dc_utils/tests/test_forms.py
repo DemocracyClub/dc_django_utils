@@ -21,7 +21,7 @@ class TestForms(TestCase):
 
         form = MailingListSignupForm(data)
         if not form.is_valid():
-            assert form.errors = []
+            assert form.errors == []
         self.assertTrue(form.is_valid())
 
     def test_mailing_list_invalid(self):
