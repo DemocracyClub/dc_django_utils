@@ -1,6 +1,7 @@
 from django.conf.urls import url
+from django.views.defaults import ERROR_500_TEMPLATE_NAME
 
 from dc_utils.views import SampleFormView
 
-    def test_dc_server_error(request, template_name=ERROR_500_TEMPLATE_NAME)
-        assert context
+def test_dc_server_error(client):
+    assert client.get(ERROR_500_TEMPLATE_NAME).context
