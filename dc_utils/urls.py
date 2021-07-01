@@ -41,7 +41,7 @@ urlpatterns = [
 
 dc_utils_testing_patterns = [
     url(
-        r'^$',
+        r'^all_elements.html$',
         TemplateView.as_view(template_name="html_tester/all_elements.html"),
         name='dc_utils_html_tester'
     ),
