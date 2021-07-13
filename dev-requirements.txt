@@ -6,3 +6,4 @@ Django==2.2.24
 setuptools==57.0.0
 pytest
 pytest-django
+pytidylib
