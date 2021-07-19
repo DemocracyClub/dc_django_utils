@@ -1,6 +1,3 @@
-
-
-
 def whitenoise_add_middleware(MIDDLEWARE):
     insert_after = "django.middleware.security.SecurityMiddleware"
     index = 0
