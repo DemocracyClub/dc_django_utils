@@ -3,18 +3,17 @@ import re
 from django.forms.widgets import MultiWidget, NumberInput
 from django.utils.safestring import mark_safe
 
-__all__ = ('DayMonthYearWidget',)
+__all__ = ("DayMonthYearWidget",)
 
-RE_DATE = re.compile(r'(\d{4})-(\d\d?)-(\d\d?)$')
+RE_DATE = re.compile(r"(\d{4})-(\d\d?)-(\d\d?)$")
 
 
 class DayMonthYearWidget(MultiWidget):
-
     def __init__(self, attrs=None):
         self.widgets = [
-            NumberInput(attrs={'label': 'Day'}),
-            NumberInput(attrs={'label': 'Month'}),
-            NumberInput(attrs={'label': 'Year'}),
+            NumberInput(attrs={"label": "Day"}),
+            NumberInput(attrs={"label": "Month"}),
+            NumberInput(attrs={"label": "Year"}),
         ]
         super(MultiWidget, self).__init__(attrs)
 
@@ -28,33 +27,36 @@ class DayMonthYearWidget(MultiWidget):
             value = self.decompress(value)
         output = []
         final_attrs = self.build_attrs(attrs)
-        id_ = final_attrs.get('id')
+        id_ = final_attrs.get("id")
         for i, widget in enumerate(self.widgets):
             try:
                 widget_value = value[i]
             except IndexError:
                 widget_value = None
             if id_:
-                final_attrs = dict(final_attrs, id='%s_%s' % (id_, i))
-            widget_html = widget.render(name + '_%s' % i,
-                                        widget_value, final_attrs)
+                final_attrs = dict(final_attrs, id="%s_%s" % (id_, i))
+            widget_html = widget.render(
+                name + "_%s" % i, widget_value, final_attrs
+            )
             html = """
             <div class="form-group form-group-{name}">
                 <label for="{name}_{i}">{label}</label>
                 {widget_html}
             </div>
-            """.format(**{
-                    'name': widget.attrs['label'].lower(),
-                    'i': i,
-                    'widget_html': widget_html,
-                    'label': widget.attrs['label'],
-                })
+            """.format(
+                **{
+                    "name": widget.attrs["label"].lower(),
+                    "i": i,
+                    "widget_html": widget_html,
+                    "label": widget.attrs["label"],
+                }
+            )
             output.append(html)
 
         try:
             return mark_safe(self.format_output(output))
         except AttributeError:
-            return mark_safe(''.join(output))
+            return mark_safe("".join(output))
 
     def decompress(self, value):
         if not value:

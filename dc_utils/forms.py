@@ -22,7 +22,10 @@ class SampleForm(forms.Form):
         help_text="Insert your email",
     )
     password1 = forms.CharField(
-        label="password", max_length=30, required=True, widget=forms.PasswordInput()
+        label="password",
+        max_length=30,
+        required=True,
+        widget=forms.PasswordInput(),
     )
     password2 = forms.CharField(
         label="re-enter password",
@@ -31,7 +34,10 @@ class SampleForm(forms.Form):
         widget=forms.PasswordInput(),
     )
     first_name = forms.CharField(
-        label="first name", max_length=5, required=True, widget=forms.TextInput()
+        label="first name",
+        max_length=5,
+        required=True,
+        widget=forms.TextInput(),
     )
     last_name = forms.CharField(
         label="last name", max_length=5, required=True, widget=forms.TextInput()
@@ -72,7 +78,9 @@ class SampleForm(forms.Form):
     )
 
     file_field = forms.FileField(widget=forms.FileInput)
-    clearable_file = forms.FileField(widget=forms.ClearableFileInput, required=False)
+    clearable_file = forms.FileField(
+        widget=forms.ClearableFileInput, required=False
+    )
 
     def clean(self):
         super().clean()

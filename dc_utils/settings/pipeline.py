@@ -47,7 +47,9 @@ DEFAULT_PIPELINE = {
 }
 
 
-def get_pipeline_settings(extra_css=None, extra_js=None, extra_include_paths=None):
+def get_pipeline_settings(
+    extra_css=None, extra_js=None, extra_include_paths=None
+):
     PIPELINE = DEFAULT_PIPELINE
     if extra_include_paths:
         PIPELINE["SASS_ARGUMENTS"] = build_sass_args(extra_include_paths)

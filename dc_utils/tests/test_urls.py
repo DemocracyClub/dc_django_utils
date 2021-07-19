@@ -3,5 +3,6 @@ from django.views.defaults import ERROR_500_TEMPLATE_NAME
 
 from dc_utils.views import SampleFormView
 
+
 def test_dc_server_error(client):
     assert client.get(ERROR_500_TEMPLATE_NAME).context

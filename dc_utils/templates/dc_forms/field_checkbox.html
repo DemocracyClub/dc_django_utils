@@ -1,21 +1,21 @@
 {% load dc_forms %}
 <div class="ds-field">
-  {% if field|is_multiple_checkbox %}
-    <fieldset>
-      <legend>{{ field.label }}</legend>
-      <div class="ds-stack-smallest">
-        {% for radio in field %}
-          <label class="ds-field-checkbox" for="{{ radio.id_for_label }}">
-            {{ radio.tag }}
-            <span>{{ radio.choice_label }}</span>
-          </label>
-        {% endfor %}
-      </div>
-    </fieldset>
-  {% else %}
-    <label class="ds-field-checkbox">
-      {{ field }}
-      <span>{{ field.label }}</span>
-    </label>
-  {% endif %}
+    {% if field|is_multiple_checkbox %}
+        <fieldset>
+            <legend>{{ field.label }}</legend>
+            <div class="ds-stack-smallest">
+                {% for radio in field %}
+                    <label class="ds-field-checkbox" for="{{ radio.id_for_label }}">
+                        {{ radio.tag }}
+                        <span>{{ radio.choice_label }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+        </fieldset>
+    {% else %}
+        <label class="ds-field-checkbox">
+            {{ field }}
+            <span>{{ field.label }}</span>
+        </label>
+    {% endif %}
 </div>
