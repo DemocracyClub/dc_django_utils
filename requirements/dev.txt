@@ -1,8 +1,13 @@
+black==21.7b0
 isort
-black==21.5b1
+ipdb
 django-pipeline==2.0.6
-
 Django==2.2.24
 setuptools==57.0.0
+pre-commit
+djhtml
+
 pytest
 pytest-django
+pytest-mock
+pytidylib

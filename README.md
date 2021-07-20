@@ -33,3 +33,14 @@ Add `dc_utils` to your `INSTALLED_APPS`
     `urlpatterns += dc_utils_testing_patterns`
 ## Add the following line (with the version) to `requirements.txt':
 `git+https://github.com/DemocracyClub/dc_django_utils.git@[hash]`
+
+## Local Development
+Install the dev dependencies:
+
+    pip install -r requirements/dev.txt
+
+
+This project uses [pre-commit](https://pre-commit.com/#quick-start) to run `black` and `djhtml` before each commit. To enable this, after installing the dev dependencies run:
+
+    pre-commit install
+
