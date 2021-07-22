@@ -11,3 +11,4 @@ workflows:
           matrix:
             parameters:
               version: ["3.6", "3.8", "3.9"]
+              args: ["&& pip install django==2.2", "&& pip install django==3.2",]
