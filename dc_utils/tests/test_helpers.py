@@ -1,7 +1,27 @@
-from dc_utils.tests.helpers import validate_html
+from dc_utils.tests.helpers import validate_html, validate_url
 
 
-def test_validate_html(mocker):
+def test_validate_html():
+    document, errors = validate_html(
+        """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Hello, world!</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="description" content="" />
+    </head>
+    <body>
+      <h1>Hello, world!</h1>
+    </body>
+    </html>"""
+    )
+    assert document == "<h1>\n  Hello, world!\n</h1>\n"
+    assert errors == ""
+
+
+def test_validate_url(mocker):
     """
     - Replace client with mock, and patch tidylib
     - Test that the client is called with the given url
@@ -14,7 +34,7 @@ def test_validate_html(mocker):
 
     mocker.patch("dc_utils.tests.helpers.tidy_document", new=tidy_document)
     url = "/example/"
-    result = validate_html(client=client, url=url)
+    result = validate_url(client=client, url=url)
 
     assert result == ("document", "errors")
     client.get.assert_called_once_with(url)

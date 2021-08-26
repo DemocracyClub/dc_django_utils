@@ -1,12 +1,17 @@
 from tidylib import tidy_document
 
 
-def validate_html(client, url):
+def validate_url(client, url):
+    response = client.get(url)
+    content = response.content
+    document, errors = validate_html(content)
+    return document, errors
+
+
+def validate_html(content):
     """
     Helper function that can be used to help test html is valid.
     """
-    response = client.get(url)
-    content = response.content
     document, errors = tidy_document(
         content,
         options={
