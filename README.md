@@ -4,7 +4,6 @@
 
 ### This project will contain:
  
-Javascript helpers, including jQuery
 A django app containing templates and form helpers
 It's designed to make managing the front end of DC projects easy and consistent
 
@@ -12,8 +11,7 @@ TO DO:
 - Other common utils  
 - Common testing helpers
 - View mixins
-- Running some smoke tests on CI
-- Create Install docs
+- Base template with common structure
 
 ### Usage
 To use this project in your django project: 
@@ -31,7 +29,7 @@ Add `dc_utils` to your `INSTALLED_APPS`
 `if settings.DEBUG:`
     `from dc_utils.urls import dc_utils_testing_patterns`
     `urlpatterns += dc_utils_testing_patterns`
-## Add the following line (with the version) to `requirements.txt':
+## Add the following line with the [latest version](https://github.com/DemocracyClub/dc_django_utils/releases) to `requirements.txt':
 `git+https://github.com/DemocracyClub/dc_django_utils.git@[hash]`
 
 ## Local Development
@@ -39,8 +37,12 @@ Install the dev dependencies:
 
     pip install -r requirements/dev.txt
 
-
 This project uses [pre-commit](https://pre-commit.com/#quick-start) to run `black` and `djhtml` before each commit. To enable this, after installing the dev dependencies run:
 
     pre-commit install
 
+## New Release
+Once a PR is merged: 
+1. Draft a new release [here](https://github.com/DemocracyClub/dc_django_utils/releases) 
+2. Update version in `dc_utils/__init__.py`
+3. Update versions number in `base.py` in related repos. 
