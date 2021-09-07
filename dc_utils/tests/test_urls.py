@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 from django.views.defaults import ERROR_500_TEMPLATE_NAME
 
 
