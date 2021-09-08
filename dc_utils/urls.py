@@ -1,6 +1,6 @@
 from django import http
 from django.conf import settings
-from django.conf.urls import url
+from django.urls.re_path import re_path
 from django.template import TemplateDoesNotExist, loader
 from django.views.decorators.csrf import requires_csrf_token
 from django.views.defaults import ERROR_500_TEMPLATE_NAME, page_not_found
@@ -30,8 +30,8 @@ def dc_server_error(request, template_name=ERROR_500_TEMPLATE_NAME):
 
 
 urlpatterns = [
-    url(r"500.html$", dc_server_error),
-    url(r"404.html$", page_not_found, {"exception": "Fake problem"}),
+    re_path(r"500.html$", dc_server_error),
+    re_path(r"404.html$", page_not_found, {"exception": "Fake problem"}),
 ]
 
 
