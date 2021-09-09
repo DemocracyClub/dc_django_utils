@@ -36,12 +36,12 @@ urlpatterns = [
 
 
 dc_utils_testing_patterns = [
-    url(
+    re_path(
         r"^all_elements.html$",
         TemplateView.as_view(template_name="html_tester/all_elements.html"),
         name="dc_utils_html_tester",
     ),
-    url(
+    re_path(
         r"^sample_form.html$",
         SampleFormView.as_view(),
         name="dc_utils_sample_form",
