@@ -1,4 +1,3 @@
-import pytest
 from django import forms
 
 from dc_utils.templatetags.dc_forms import dc_form

@@ -10,4 +10,5 @@ djhtml
 pytest
 pytest-django
 pytest-mock
+pytest-flakes
 pytidylib
