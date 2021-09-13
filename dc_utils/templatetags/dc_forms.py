@@ -24,7 +24,7 @@ def add_input_classes(field):
 
 @register.filter
 def dc_form(element):
-    if not isinstance(element, forms.Form):
+    if not isinstance(element, forms.BaseForm):
         # if called without a form object, return without rendering
         return
     markup_classes = {"label": "", "value": "", "single_value": ""}
@@ -53,8 +53,6 @@ def render(element, markup_classes):
         else:
             for field in element.visible_fields():
                 add_input_classes(field)
-                if type(element) == str:
-                    return element
 
             template = get_template("dc_forms/form.html")
             context = Context({"form": element, "classes": markup_classes})
