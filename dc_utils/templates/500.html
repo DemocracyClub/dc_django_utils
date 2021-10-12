@@ -1,16 +1,45 @@
-{% extends "base.html" %}
-{% load staticfiles %}
+{% load pipeline %}
+{% load static %}
 
-{% block page_title %}Server Error{% endblock %}
+<!doctype html>
 
-{% block content %}
-    <div class="card centered-card">
-        <h1>500 server error</h1>
-        <p>Sorry, something has gone wrong.</p>
-        <p>The team at Democracy Club have got an email about this problem and will
-            look in to it very soon.</p>
-        <p>If the problem continues, please
-            <a href="https://democracyclub.org.uk/contact/">contact us</a>.</p>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    {% block extra_site_css %}{% if USE_COMPRESSED_CSS %}
+        <style type="text/css">
+            {% include "_compressed_css.html" %}
+        </style>
+    {% else %}
+        {% stylesheet 'styles' %}
+    {% endif %}
+    {% endblock extra_site_css %}
+    <body class="ds-width-full">
+        <div class="ds-page">
+            <p><a class="ds-skip-link" href="#main">skip to content</a></p>
+            {% block site_menu %}
+                <header class="ds-header">
+                    <a class="ds-logo" href="/">
+                        <img src="{% static 'images/logo_icon.svg' %}" alt="" />
+                        <span>{{ SITE_TITLE }}></span>
+                    </a>
+                </header>
+            {% endblock site_menu %}
+            <main id="main" tabindex="-1" class="ds-stack">
 
-    </div>
-{% endblock content %}
+                <title>{% block page_title %}Server Error{% endblock %}</title>
+
+                {% block content %}
+
+                    <h1>500 server error</h1>
+                    <p>Sorry, something has gone wrong.</p>
+                    <p>The team at Democracy Club have got an email about this problem and will
+                        look in to it very soon.</p>
+                    <p>If the problem continues, please
+                        <a href="https://democracyclub.org.uk/contact/">contact us</a>.</p>
+
+
+                {% endblock content %}
+            </body>
+        </html>
