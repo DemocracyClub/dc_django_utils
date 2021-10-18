@@ -41,6 +41,12 @@ This project uses [pre-commit](https://pre-commit.com/#quick-start) to run `blac
 
     pre-commit install
 
+# Test your changes in another product which uses  `dc_utils` as a dependency
+
+While in your product directory, run:
+ `pip install -e /path/to/locations/repo` (with the local path location to `dc_utils`)
+
+This will overwrite the directory in site-packages with a symbolic link to the locations repository, meaning any changes to code in there will automatically be reflected - just reload the page (so long as you're using the development server).
 ## New Release
 Once a PR is merged: 
 1. Draft a new release [here](https://github.com/DemocracyClub/dc_django_utils/releases) 
