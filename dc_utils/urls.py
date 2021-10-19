@@ -15,7 +15,8 @@ def dc_server_error(request, template_name=ERROR_500_TEMPLATE_NAME):
     The same as the Django 500 view but add the site logo.
     """
     context = {
-        "site_logo": getattr(settings, "SITE_LOGO", "images/logo_icon.svg")
+        "site_logo": getattr(settings, "SITE_LOGO", "images/logo_icon.svg"),
+        "site_title": getattr(settings, "SITE_TITLE"),
     }
     try:
         template = loader.get_template(template_name)
