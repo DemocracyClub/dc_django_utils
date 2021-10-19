@@ -1,8 +1,10 @@
+import markdown
 from dc_utils.forms import DCHeaderField
 from dc_utils.widgets import DayMonthYearWidget
 from django import forms, template
 from django.template import Context
 from django.template.loader import get_template
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -85,3 +87,37 @@ def is_dc_date_field(field):
 @register.filter
 def is_heading(field):
     return isinstance(field.field, DCHeaderField)
+
+
+@register.filter(name="markdown")
+def markdown_filter(text):
+    return mark_safe(markdown.markdown(text))
+
+
+markdown_filter.is_safe = True
+
+
+@register.tag(name="markdown")
+def markdown_tag(parser, token):
+    nodelist = parser.parse(("endmarkdown",))
+    bits = token.split_contents()
+    if len(bits) == 1:
+        style = "default"
+    elif len(bits) == 2:
+        style = bits[1]
+    else:
+        raise template.TemplateSyntaxError(
+            "`markdown` tag requires exactly zero or one arguments"
+        )
+    parser.delete_first_token()  # consume '{% endmarkdown %}'
+    return MarkdownNode(style, nodelist)
+
+
+class MarkdownNode(template.Node):
+    def __init__(self, style, nodelist):
+        self.style = style
+        self.nodelist = nodelist
+
+    def render(self, context):
+        value = self.nodelist.render(context)
+        return mark_safe(markdown.markdown(value, self.style))
