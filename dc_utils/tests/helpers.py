@@ -1,14 +1,14 @@
 from tidylib import tidy_document
 
 
-def validate_url(client, url):
+def validate_html(client, url):
     response = client.get(url)
     content = response.content
-    document, errors = validate_html(content)
+    document, errors = validate_html_str(content)
     return document, errors
 
 
-def validate_html(content):
+def validate_html_str(content):
     """
     Helper function that can be used to help test html is valid.
     """
@@ -27,7 +27,6 @@ def validate_html(content):
             "show-body-only": 1,
             "fix-uri": 0,
             "mute-id": 1,
-            "show-filename": 1,
         },
     )
     return document, errors
