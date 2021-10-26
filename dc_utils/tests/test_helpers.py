@@ -1,4 +1,24 @@
-from dc_utils.tests.helpers import validate_html
+from dc_utils.tests.helpers import validate_html_str, validate_html
+
+
+def test_validate_html_str():
+    document, errors = validate_html_str(
+        """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Hello, world!</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="description" content="" />
+    </head>
+    <body>
+      <h1>Hello, world!</h1>
+    </body>
+    </html>"""
+    )
+    assert document == "<h1>\n  Hello, world!\n</h1>\n"
+    assert errors == ""
 
 
 def test_validate_html(mocker):
@@ -33,6 +53,5 @@ def test_validate_html(mocker):
             "show-body-only": 1,
             "fix-uri": 0,
             "mute-id": 1,
-            "show-filename": 1,
         },
     )

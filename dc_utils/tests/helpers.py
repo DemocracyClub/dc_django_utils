@@ -2,11 +2,16 @@ from tidylib import tidy_document
 
 
 def validate_html(client, url):
+    response = client.get(url)
+    content = response.content
+    document, errors = validate_html_str(content)
+    return document, errors
+
+
+def validate_html_str(content):
     """
     Helper function that can be used to help test html is valid.
     """
-    response = client.get(url)
-    content = response.content
     document, errors = tidy_document(
         content,
         options={
@@ -22,7 +27,6 @@ def validate_html(client, url):
             "show-body-only": 1,
             "fix-uri": 0,
             "mute-id": 1,
-            "show-filename": 1,
         },
     )
     return document, errors
