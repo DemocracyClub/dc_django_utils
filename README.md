@@ -48,7 +48,8 @@ While in your product directory, run:
 
 This will overwrite the directory in site-packages with a symbolic link to the locations repository, meaning any changes to code in there will automatically be reflected - just reload the page (so long as you're using the development server).
 ## New Release
-Once a PR is merged: 
-1. Draft a new release [here](https://github.com/DemocracyClub/dc_django_utils/releases) 
-2. Update version in `dc_utils/__init__.py`
-3. Update versions number in `base.py` in related repos. 
+Once a PR (or a set of PRs) is merged: 
+
+1. Update version in `dc_utils/__init__.py` (commit and push to main, or do it in the github interface).
+2. Draft a new release [here](https://github.com/DemocracyClub/dc_django_utils/releases). Make sure to create a new tag and name (both should just be the version number). 
+3. Update versions number in `base.py` in related repos. At the time of writing this is WCIVF, DC Website and WDIV. 
