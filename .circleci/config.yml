@@ -17,11 +17,10 @@ workflows:
           test-tool: pytest
           matrix:
             parameters:
-              version: ["3.6", "3.8", "3.9"]
-              args: ["&& pip install django==2.2", "&& pip install django==3.2",]
+              version: ["3.6", "3.8", "3.9", "4.0"]
+              args: ["&& pip install django==3.2"]
           post-steps:
             - run: 
                 command: |
                   black . --check
                   python manage.py check
-                  python manage.py makemigrations --check
