@@ -33,7 +33,7 @@ DEFAULT_PIPELINE = {
             "source_filenames": [],
             "output_filename": "css/styles.css",
             "extra_context": {
-                "media": "screen,projection,print",
+                "media": "screen,print",
             },
         },
     },

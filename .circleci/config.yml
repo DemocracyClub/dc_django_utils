@@ -1,27 +1,58 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@1.4.0
+executors:
+  py38:
+    docker:
+      - image: cimg/python:3.8
+  py39:
+    docker:
+      - image: cimg/python:3.9
+  py310:
+    docker:
+      - image: cimg/python:3.10
+
+jobs:
+  run_tests:
+    parameters:
+      python_version:
+        type: executor
+      django_version:
+        type: string
+    executor: << parameters.python_version >>
+    steps:
+      - checkout
+      - run:
+          name: Install HTML Tidy
+          command: |
+            wget https://github.com/htacg/tidy-html5/releases/download/5.8.0/tidy-5.8.0-Linux-64bit.deb && sudo dpkg -i tidy-5.8.0-Linux-64bit.deb
+            rm tidy-5.8.0-Linux-64bit.deb
+      - run:
+          name: Install Requirements
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Install Django << parameters.django_version >>
+          command: |
+            pip install "django<< parameters.django_version >>"
+      - run:
+          name: Django Checks
+          command: |
+            python manage.py check
+      - run:
+          name: Black
+          command: |
+            black . --check
+      - run:
+          name: Pytest
+          command: |
+            pytest -sx
 
 workflows:
   tests:
     jobs:
-      - python/test:
-          pre-steps:
-            - run:
-                name: Install HTML Tidy
-                command: |
-                  wget https://github.com/htacg/tidy-html5/releases/download/5.8.0/tidy-5.8.0-Linux-64bit.deb && sudo dpkg -i tidy-5.8.0-Linux-64bit.deb
-                  rm tidy-5.8.0-Linux-64bit.deb
+      - run_tests:
 
-          test-tool: pytest
           matrix:
             parameters:
-              version: ["3.6", "3.8", "3.9"]
-              args: ["&& pip install django==2.2", "&& pip install django==3.2",]
-          post-steps:
-            - run: 
-                command: |
-                  black . --check
-                  python manage.py check
-                  python manage.py makemigrations --check
+              python_version: [ py38, py39, py310 ]
+              django_version: [ ">=3.2,<4.0", ">=4.0,<4.1", "==4.1b1" ]

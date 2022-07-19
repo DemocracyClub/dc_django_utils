@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block base_title %}
+                {% block page_title %}
+                {% endblock page_title %}
+            {% endblock base_title %}
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block extra_site_css %}
+        {% endblock extra_site_css %}
+        {% block page_meta %}
+        {% endblock page_meta %}
+
+        {% block site_meta %}
+
+            {% block site_icons %}
+                <link rel="shortcut icon" href="{% static 'images/logo_icon.svg' %}">
+                <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-touch-icon.png' %}">
+                <link rel="icon" type="image/png" href="{% static 'icons/favicon-32x32.png' %}" sizes="32x32">
+                <link rel="icon" type="image/png" href="{% static 'icons/favicon-16x16.png' %}" sizes="16x16">
+                <link rel="mask-icon" href="{% static 'icons/safari-pinned-tab.svg' %}" color="#ec008c">
+                <link rel="manifest" href="{% static 'manifest.json' %}">
+            {% endblock site_icons %}
+
+            {% block base_og_tags %}
+                <meta property="og:description" content="{% block og_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock og_description_content %}" />
+                <meta property="og:image" content="{% block og_image_content %}{{ CANONICAL_URL }}{% static 'images/maze_illustration_no_text.png' %}{% endblock og_image_content %}" />
+                <meta property="og:title" content="{% block og_title_content %}{{ SITE_TITLE }}{% endblock og_title_content %}" />
+                <meta property="og:type" content="{% block og_type_content %}website{% endblock og_type_content %}">
+                <meta property="og:url" content="{% block og_url_content %}{{ CANONICAL_URL }}{% endblock og_url_content %}">
+            {% endblock base_og_tags %}
+
+            {% block twitter_tags %}
+                <meta name="twitter:title" content="{% block twitter_title_content %}Democracy Club{% endblock twitter_title_content %}">
+                <meta name="twitter:card" content="summary_large_image">
+                <meta name="twitter:site" content="@democlub">
+                <meta name="twitter:image:alt" content="Democracy Club">
+                <meta name="twitter:image" content="{% block twitter_image_url %}{{ CANONICAL_URL }}{% static 'images/maze_illustration_no_text.png' %}{% endblock twitter_image_url %}" />
+                <meta name="twitter:description" content="{% block twitter_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock twitter_description_content %}"/>
+            {% endblock twitter_tags %}
+
+        {% endblock site_meta %}
+    </head>
+    {% block body_base %}
+    {% endblock body_base %}
+</html>
+
