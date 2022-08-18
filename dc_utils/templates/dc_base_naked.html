@@ -24,12 +24,12 @@
                 <link rel="icon" type="image/png" href="{% static 'icons/favicon-32x32.png' %}" sizes="32x32">
                 <link rel="icon" type="image/png" href="{% static 'icons/favicon-16x16.png' %}" sizes="16x16">
                 <link rel="mask-icon" href="{% static 'icons/safari-pinned-tab.svg' %}" color="#ec008c">
-                <link rel="manifest" href="{% static 'manifest.json' %}">
+                <link rel="manifest" href="{% static 'icons/manifest.json' %}">
             {% endblock site_icons %}
 
             {% block base_og_tags %}
                 <meta property="og:description" content="{% block og_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock og_description_content %}" />
-                <meta property="og:image" content="{% block og_image_content %}{{ CANONICAL_URL }}{% static 'images/maze_illustration_no_text.png' %}{% endblock og_image_content %}" />
+                <meta property="og:image" content="{% block og_image_content %}{{ CANONICAL_URL }}{% static 'images/og_image_logo.png' %}{% endblock og_image_content %}" />
                 <meta property="og:title" content="{% block og_title_content %}{{ SITE_TITLE }}{% endblock og_title_content %}" />
                 <meta property="og:type" content="{% block og_type_content %}website{% endblock og_type_content %}">
                 <meta property="og:url" content="{% block og_url_content %}{{ CANONICAL_URL }}{% endblock og_url_content %}">
@@ -40,7 +40,7 @@
                 <meta name="twitter:card" content="summary_large_image">
                 <meta name="twitter:site" content="@democlub">
                 <meta name="twitter:image:alt" content="Democracy Club">
-                <meta name="twitter:image" content="{% block twitter_image_url %}{{ CANONICAL_URL }}{% static 'images/maze_illustration_no_text.png' %}{% endblock twitter_image_url %}" />
+                <meta name="twitter:image" content="{% block twitter_image_url %}{{ CANONICAL_URL }}{% static 'images/og_image_logo.png' %}{% endblock twitter_image_url %}" />
                 <meta name="twitter:description" content="{% block twitter_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock twitter_description_content %}"/>
             {% endblock twitter_tags %}
 
@@ -49,4 +49,3 @@
     {% block body_base %}
     {% endblock body_base %}
 </html>
-
