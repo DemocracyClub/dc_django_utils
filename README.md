@@ -22,6 +22,9 @@ To use this project in your django project:
 
 Add `dc_utils` to your `INSTALLED_APPS`
 
+Add `dc_utils.context_processors.dc_django_utils` to your
+`context_processors` list.
+
 ### Add the following to your main `urls.py`
 
 `handler500 = "dc_utils.urls.dc_server_error"`
