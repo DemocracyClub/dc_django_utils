@@ -8,7 +8,7 @@
             <header role="banner">
                 <div class="container">
                     <a href="/">
-                        <img src="{% static site_logo %}" alt="{{ site_title }}" style="align:center;width:95%;max-width:{{ site_logo_width }}">
+                        <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
                 </div>
