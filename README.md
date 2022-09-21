@@ -29,9 +29,13 @@ Add `dc_utils.context_processors.dc_django_utils` to your
 
 `handler500 = "dc_utils.urls.dc_server_error"`
 
-`if settings.DEBUG:`
-    `from dc_utils.urls import dc_utils_testing_patterns`
-    `urlpatterns += dc_utils_testing_patterns`
+```py
+if settings.DEBUG:
+    from dc_utils.urls import dc_utils_testing_patterns
+    urlpatterns += dc_utils_testing_patterns
+```
+
+
 ### Add the following line with the [latest version](https://github.com/DemocracyClub/dc_django_utils/releases) to `requirements.txt':
 `git+https://github.com/DemocracyClub/dc_django_utils.git@[hash]`
 
