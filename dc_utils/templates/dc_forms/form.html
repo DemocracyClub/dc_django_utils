@@ -1,6 +1,6 @@
 {% load dc_forms %}
 {% if form.non_field_errors %}
-    <div class="alert alert-danger">
+    <div class="ds-error">
         <a class="close" data-dismiss="alert">&times;</a>
         {% for non_field_error in form.non_field_errors %}
             {{ non_field_error }}
@@ -13,7 +13,7 @@
 {% endfor %}
 
 {% for field in form.visible_fields %}
-    {% if field.errors %}<div class="error">{% endif %}
+    {% if field.errors %}<div class="ds-error">{% endif %}
     {% if field|is_dc_date_field %}
         {% include 'dc_forms/field_date.html' %}
     {% elif field|is_radio %}

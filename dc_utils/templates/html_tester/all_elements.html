@@ -11,47 +11,51 @@
 
     <hr>
     <h2>Postcode lookup form</h2>
-    <div class="card centered-card">
-        <header>
-            <h2>Find a thing that has quite a long name</h2>
-        </header>
-        <form method="post" class="form form-inline">
-            <input name="csrfmiddlewaretoken" value="" type="hidden">
-            <div class="form-group">
-                <label class="control-label  " for="id_postcode">Find a thing that has quite a long name</label>
-                <div class=" ">
-                    <input name="postcode" id="id_postcode" class=" form-control" required="" type="text">
+    <div class="ds-card">
+        <div class="ds-card-body">
+            <header>
+                <h2>Find a thing that has quite a long name</h2>
+            </header>
+            <form method="post" class="form form-inline">
+                <input name="csrfmiddlewaretoken" value="" type="hidden">
+                <div class="form-group">
+                    <label class="control-label  " for="id_postcode">Find a thing that has quite a long name</label>
+                    <div class=" ">
+                        <input name="postcode" id="id_postcode" class=" form-control" required="" type="text">
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="button" id="submit-postcode">Find a thing that has quite a long name</button>
-        </form>
+                <button type="submit" class="button" id="submit-postcode">Find a thing that has quite a long name</button>
+            </form>
+        </div>
     </div>
 
     <h2>Postcode form with errors</h2>
 
-    <div class="card centered-card">
-        <div class="error-summary">
-            <h2>Sorry, we can't find ER8 0RR</h2>
-            <p>This doesn't appear to be a valid postcode.</p>
-        </div>
-        <header>
-            <h2>Find your polling station</h2>
-        </header>
-        <form method="post" class="form form-inline">
-            <input name="csrfmiddlewaretoken" value="UpQoCV5DR3IHgYjZrttpOGeGyzMJeoWj0MaRv2FC5IJZu2FWFKQa0HKHbLS7EUbv" type="hidden">
-            <div class="error">
-                <div class="form-group has-error">
-                    <label class="control-label  " for="id_postcode">
-                        Enter your postcode
-                        <span class="error-help-text ">Enter a valid postcode.</span>
-                    </label>
-                    <div class=" ">
-                        <input name="postcode" value="ER8 0RR" required="" class=" form-control" id="id_postcode" type="text">
+    <div class="ds-card">
+        <div class="ds-card-body">
+            <div class="ds-error">
+                <h2>Sorry, we can't find ER8 0RR</h2>
+                <p>This doesn't appear to be a valid postcode.</p>
+            </div>
+            <header>
+                <h2>Find your polling station</h2>
+            </header>
+            <form method="post" class="form form-inline">
+                <input name="csrfmiddlewaretoken" value="UpQoCV5DR3IHgYjZrttpOGeGyzMJeoWj0MaRv2FC5IJZu2FWFKQa0HKHbLS7EUbv" type="hidden">
+                <div class="ds-error">
+                    <div class="form-group has-error">
+                        <label class="control-label  " for="id_postcode">
+                            Enter your postcode
+                            <small>Enter a valid postcode.</small>
+                        </label>
+                        <div class=" ">
+                            <input name="postcode" value="ER8 0RR" required="" class=" form-control" id="id_postcode" type="text">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="button" id="submit-postcode">Find your polling station</button>
-        </form>
+                <button type="submit" class="ds-button" id="submit-postcode">Find your polling station</button>
+            </form>
+        </div>
     </div>
 
 
@@ -59,47 +63,49 @@
 
 
     <h2>Address picker form</h2>
-    <div class="card">
-        <h2 id="address_picker">
-            Choose Your Address / Street
-        </h2>
-        <form method="post" class="form form-inline">
-            <input name="csrfmiddlewaretoken" value="j6zYGslLcSdkGjABePnKUe06BvvQJotqytkAYpJF6C6l90s7UnLMXNa4Kjs6Ocid" type="hidden">
-            <div class="form-group">
-                <label class="control-label  " for="id_address"></label>
-                <div class=" ">
-                    <select name="address" aria-describedby="address_picker" class="select_multirow form-control" size="10" id="id_address">
-                        <option value="">12 Llangyfelach Street, Swansea</option>
-                        <option value="">20 Llangyfelach Street, Swansea</option>
-                        <option value="">22 Llangyfelach Street, Swansea</option>
-                        <option value="">24 Llangyfelach Street, Swansea</option>
-                        <option value="">26 Llangyfelach Street, Swansea</option>
-                        <option value="">28 Llangyfelach Street, Swansea</option>
-                        <option value="">30 Llangyfelach Street, Swansea</option>
-                        <option value="">32 Llangyfelach Street, Swansea</option>
-                        <option value="">34 Llangyfelach Street, Swansea</option>
-                        <!-- Apparently this is the longest address in the PAF -->
-                        <option value="">Isle of Man Government Office of Human Resources, Learning Education and Development, The Lodge Education and Training Centre, Braddan Road, Strang, Douglas, Isle of Man, IM4 4QN</option>
-                        <option value="">36 Llangyfelach Street, Swansea</option>
-                        <option value="">38 Llangyfelach Street, Swansea</option>
-                        <option value="">40 Llangyfelach Street, Swansea</option>
-                        <option value="">41 Llangyfelach Street, Swansea</option>
-                        <option value="">42 Llangyfelach Street, Swansea</option>
-                        <option value="">43 Llangyfelach Street, Swansea</option>
-                        <option value="">44 Llangyfelach Street, Swansea</option>
-                    </select>
+    <div class="ds-card">
+        <div class="ds-card-body">
+            <h2 id="address_picker">
+                Choose Your Address / Street
+            </h2>
+            <form method="post" class="form form-inline">
+                <input name="csrfmiddlewaretoken" value="j6zYGslLcSdkGjABePnKUe06BvvQJotqytkAYpJF6C6l90s7UnLMXNa4Kjs6Ocid" type="hidden">
+                <div class="form-group">
+                    <label class="control-label  " for="id_address"></label>
+                    <div class=" ">
+                        <select name="address" aria-describedby="address_picker" class="select_multirow form-control" size="10" id="id_address">
+                            <option value="">12 Llangyfelach Street, Swansea</option>
+                            <option value="">20 Llangyfelach Street, Swansea</option>
+                            <option value="">22 Llangyfelach Street, Swansea</option>
+                            <option value="">24 Llangyfelach Street, Swansea</option>
+                            <option value="">26 Llangyfelach Street, Swansea</option>
+                            <option value="">28 Llangyfelach Street, Swansea</option>
+                            <option value="">30 Llangyfelach Street, Swansea</option>
+                            <option value="">32 Llangyfelach Street, Swansea</option>
+                            <option value="">34 Llangyfelach Street, Swansea</option>
+                            <!-- Apparently this is the longest address in the PAF -->
+                            <option value="">Isle of Man Government Office of Human Resources, Learning Education and Development, The Lodge Education and Training Centre, Braddan Road, Strang, Douglas, Isle of Man, IM4 4QN</option>
+                            <option value="">36 Llangyfelach Street, Swansea</option>
+                            <option value="">38 Llangyfelach Street, Swansea</option>
+                            <option value="">40 Llangyfelach Street, Swansea</option>
+                            <option value="">41 Llangyfelach Street, Swansea</option>
+                            <option value="">42 Llangyfelach Street, Swansea</option>
+                            <option value="">43 Llangyfelach Street, Swansea</option>
+                            <option value="">44 Llangyfelach Street, Swansea</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="ds-button" id="submit-address">
+                        Find my Polling Station
+                    </button>
                 </div>
-                <button type="submit" class="button" id="submit-address">
-                    Find my Polling Station
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 
 
     <h2>API pages</h2>
-    <div class="api-resource card card">
+    <div class="api-resource ds-card">
         <h3 id="api-root-3">
             API Root&nbsp;<a href="#api-root-3" class="permalink">¶</a>
         </h3>
@@ -155,7 +161,7 @@
     <p>Taken with thanks from
         <a href="https://github.com/cbracco/html5-test-page">html5-test-page</a>.</p>
 
-    <section class="card">
+    <section class="ds-card">
 
         <header role="banner">
             <h1>HTML5 Test Page</h1>
