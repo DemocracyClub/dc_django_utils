@@ -10,12 +10,12 @@ RE_DATE = re.compile(r"(\d{4})-(\d\d?)-(\d\d?)$")
 
 class DayMonthYearWidget(MultiWidget):
     def __init__(self, attrs=None):
-        self.widgets = [
+        self.widgets = (
             NumberInput(attrs={"label": "Day"}),
             NumberInput(attrs={"label": "Month"}),
             NumberInput(attrs={"label": "Year"}),
-        ]
-        super(MultiWidget, self).__init__(attrs)
+        )
+        super().__init__(self.widgets, attrs)
 
     def render(self, name, value, attrs=None, renderer=None):
         if self.is_localized:
