@@ -1,4 +1,4 @@
-<div class="ds-field form-date">
+<div class="ds-field">
     <label class="form-label-bold{% if field.field.required and form.required_css_class %}{{ form.required_css_class }}{% endif %}">
         {{ field.label }}
         {% if field.help_text %}
@@ -12,6 +12,6 @@
             </span>
 
         {% endif %}
-        <div>{{ field }}</div>
+        <div id="form-date">{{ field }}</div>
     </label>
 </div>
