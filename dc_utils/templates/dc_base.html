@@ -1,42 +1,45 @@
 {% extends "dc_base_naked.html" %}
 {% load static %}
 
-{% block body_base %}
-    <body class="ds-width-full">
+{% block body_raw %}
+    <body {% block body_attrs %}class="ds-width-full"{% endblock body_attrs %}>
         <div class="ds-page">
             <p><a class="ds-skip-link" href="#main">skip to content</a></p>
-            <header role="banner">
-                <div class="container">
-                    <a href="/">
-                        <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
-                    </a>
-                    {% block site_menu %}{% endblock site_menu %}
-                </div>
-            </header>
-            <main id="main" tabindex="-1" class="ds-stack">
 
-                {% block header %}
-                {% endblock header %}
-                {% block messages %}
-                {% endblock messages %}
+            {% block header_base %}
+                <header role="banner">
+                    <div class="container">
+                        <a href="/">
+                            <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
+                        </a>
+                        {% block site_menu %}{% endblock site_menu %}
+                    </div>
+                </header>
+            {% endblock header_base %}
 
-                {% block content %}
-                    {% block page_content %}
-                    {% endblock page_content %}
-                {% endblock content %}
-            </main>
+            {% block main_base %}
+                <main id="main" tabindex="-1" class="ds-stack">
 
-            {% block site_footer %}
-            {% endblock site_footer %}
+                    {% block messages %}
+                    {% endblock messages %}
+
+                    {% block content %}
+                        {% block page_content %}
+                        {% endblock page_content %}
+                    {% endblock content %}
+                </main>
+            {% endblock main_base %}
+
+            {% block footer_base %}
+            {% endblock footer_base %}
         </div>
+
+        {% block extra_site_js %}
+        {% endblock extra_site_js %}
+
+        {% block in_page_javascript %}
+        {% endblock in_page_javascript %}
     </body>
-{% endblock body_base %}
+{% endblock body_raw %}
 
-{% block extra_site_js %}
-{% endblock extra_site_js %}
 
-{% block in_page_javascript %}
-{% endblock in_page_javascript %}
-
-{% block ga_tracking_code %}
-{% endblock ga_tracking_code %}
