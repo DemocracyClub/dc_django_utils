@@ -4,9 +4,10 @@
 {% block content %}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 
-    <h1>DC theme HTML tester</h1>
+    <h1>DC Utils HTML tester</h1>
     <p>
-        This template Extend the <strong>project's</strong> base HTML for helpful testing of the actual CSS used on the project rather than the base CSS uses in the dc_base_theme.
+        This template extends the project's base HTML for helpful
+        testing of the actual CSS used on the project.
     </p>
 
     <hr>
@@ -16,42 +17,35 @@
             <header>
                 <h2>Find a thing that has quite a long name</h2>
             </header>
-            <form method="post" class="form form-inline">
+            <form method="post">
                 <input name="csrfmiddlewaretoken" value="" type="hidden">
-                <div class="form-group">
-                    <label class="control-label  " for="id_postcode">Find a thing that has quite a long name</label>
-                    <div class=" ">
-                        <input name="postcode" id="id_postcode" class=" form-control" required="" type="text">
-                    </div>
+                <div class="ds-field">
+                    <label for="id_postcode">Find a thing that has quite a long name</label>
+                    <input name="postcode" id="id_postcode" required="" type="text">
                 </div>
-                <button type="submit" class="button" id="submit-postcode">Find a thing that has quite a long name</button>
+                <button type="submit" class="ds-button" id="submit-postcode">Find a thing that has quite a long name</button>
             </form>
         </div>
     </div>
-
     <h2>Postcode form with errors</h2>
 
     <div class="ds-card">
         <div class="ds-card-body">
-            <div class="ds-error">
-                <h2>Sorry, we can't find ER8 0RR</h2>
-                <p>This doesn't appear to be a valid postcode.</p>
-            </div>
             <header>
                 <h2>Find your polling station</h2>
             </header>
-            <form method="post" class="form form-inline">
+            <form method="post">
                 <input name="csrfmiddlewaretoken" value="UpQoCV5DR3IHgYjZrttpOGeGyzMJeoWj0MaRv2FC5IJZu2FWFKQa0HKHbLS7EUbv" type="hidden">
+                <div class="ds-field">
+                    <label for="id_postcode">
+                        Enter your postcode
+                        <small>Enter a valid postcode.</small>
+                    </label>
+                    <input name="postcode" value="ER8 0RR" required="" id="id_postcode" type="text">
+                </div>
                 <div class="ds-error">
-                    <div class="form-group has-error">
-                        <label class="control-label  " for="id_postcode">
-                            Enter your postcode
-                            <small>Enter a valid postcode.</small>
-                        </label>
-                        <div class=" ">
-                            <input name="postcode" value="ER8 0RR" required="" class=" form-control" id="id_postcode" type="text">
-                        </div>
-                    </div>
+                    Sorry, we can't find ER8 0RR.
+                    This doesn't appear to be a valid postcode.
                 </div>
                 <button type="submit" class="ds-button" id="submit-postcode">Find your polling station</button>
             </form>
@@ -68,32 +62,32 @@
             <h2 id="address_picker">
                 Choose Your Address / Street
             </h2>
-            <form method="post" class="form form-inline">
+            <form method="post">
                 <input name="csrfmiddlewaretoken" value="j6zYGslLcSdkGjABePnKUe06BvvQJotqytkAYpJF6C6l90s7UnLMXNa4Kjs6Ocid" type="hidden">
-                <div class="form-group">
-                    <label class="control-label  " for="id_address"></label>
-                    <div class=" ">
-                        <select name="address" aria-describedby="address_picker" class="select_multirow form-control" size="10" id="id_address">
-                            <option value="">12 Llangyfelach Street, Swansea</option>
-                            <option value="">20 Llangyfelach Street, Swansea</option>
-                            <option value="">22 Llangyfelach Street, Swansea</option>
-                            <option value="">24 Llangyfelach Street, Swansea</option>
-                            <option value="">26 Llangyfelach Street, Swansea</option>
-                            <option value="">28 Llangyfelach Street, Swansea</option>
-                            <option value="">30 Llangyfelach Street, Swansea</option>
-                            <option value="">32 Llangyfelach Street, Swansea</option>
-                            <option value="">34 Llangyfelach Street, Swansea</option>
-                            <!-- Apparently this is the longest address in the PAF -->
-                            <option value="">Isle of Man Government Office of Human Resources, Learning Education and Development, The Lodge Education and Training Centre, Braddan Road, Strang, Douglas, Isle of Man, IM4 4QN</option>
-                            <option value="">36 Llangyfelach Street, Swansea</option>
-                            <option value="">38 Llangyfelach Street, Swansea</option>
-                            <option value="">40 Llangyfelach Street, Swansea</option>
-                            <option value="">41 Llangyfelach Street, Swansea</option>
-                            <option value="">42 Llangyfelach Street, Swansea</option>
-                            <option value="">43 Llangyfelach Street, Swansea</option>
-                            <option value="">44 Llangyfelach Street, Swansea</option>
-                        </select>
-                    </div>
+                <div class="ds-field">
+                    <label for="id_address"></label>
+
+                    <select name="address" aria-describedby="address_picker" class="select_multirow form-control" size="10" id="id_address">
+                        <option value="">12 Llangyfelach Street, Swansea</option>
+                        <option value="">20 Llangyfelach Street, Swansea</option>
+                        <option value="">22 Llangyfelach Street, Swansea</option>
+                        <option value="">24 Llangyfelach Street, Swansea</option>
+                        <option value="">26 Llangyfelach Street, Swansea</option>
+                        <option value="">28 Llangyfelach Street, Swansea</option>
+                        <option value="">30 Llangyfelach Street, Swansea</option>
+                        <option value="">32 Llangyfelach Street, Swansea</option>
+                        <option value="">34 Llangyfelach Street, Swansea</option>
+                        <!-- Apparently this is the longest address in the PAF -->
+                        <option value="">Isle of Man Government Office of Human Resources, Learning Education and Development, The Lodge Education and Training Centre, Braddan Road, Strang, Douglas, Isle of Man, IM4 4QN</option>
+                        <option value="">36 Llangyfelach Street, Swansea</option>
+                        <option value="">38 Llangyfelach Street, Swansea</option>
+                        <option value="">40 Llangyfelach Street, Swansea</option>
+                        <option value="">41 Llangyfelach Street, Swansea</option>
+                        <option value="">42 Llangyfelach Street, Swansea</option>
+                        <option value="">43 Llangyfelach Street, Swansea</option>
+                        <option value="">44 Llangyfelach Street, Swansea</option>
+                    </select>
+
                     <button type="submit" class="ds-button" id="submit-address">
                         Find my Polling Station
                     </button>
@@ -103,48 +97,49 @@
     </div>
 
 
-
     <h2>API pages</h2>
-    <div class="api-resource ds-card">
-        <h3 id="api-root-3">
-            API Root&nbsp;<a href="#api-root-3" class="permalink">¶</a>
-        </h3>
-        <code>/.json</code>
-        <div class="api-action-example">
-            Example:
-            <a href="https://wheredoivote.co.uk/api/beta/.json">
-                <code>https://wheredoivote.co.uk/api/beta/.json</code>
-            </a>
-        </div>
-        <div class="api-description">
-            <p>The initial API entry point for discovering endpoints.</p>
-        </div>
-        <div class="api-action">
-            <h4 id="retrieve-the-entry-point-4">
-                Retrieve the Entry Point&nbsp;<a href="#retrieve-the-entry-point-4" class="permalink">¶</a>
-            </h4>
-            <div class="api-action-transaction">
-                <div class="api-action-request">
-                    Request <span class="api-method api-method-GET badge success badge success">GET</span>
-                    <code>/.json</code>
-                </div>
-                <div class="api-action-response">
-                    Response <code class="api-http-code"><a>200</a></code>
-                    <div class="api-action-headers" style="display: block;">
-                        Headers:
-                        <pre><code class="hljs http"><span class="hljs-attribute">Content-Type</span>: application/json
-        </code></pre>
+    <div class="ds-card">
+        <div class="ds-card-body">
+            <h3 id="api-root-3">
+                API Root&nbsp;<a href="#api-root-3" class="permalink">¶</a>
+            </h3>
+            <code>/.json</code>
+            <div>
+                Example:
+                <a href="https://wheredoivote.co.uk/api/beta/.json">
+                    <code>https://wheredoivote.co.uk/api/beta/.json</code>
+                </a>
+            </div>
+            <div>
+                <p>The initial API entry point for discovering endpoints.</p>
+            </div>
+            <div>
+                <h4>
+                    Retrieve the Entry Point&nbsp;<a href="#retrieve-the-entry-point-4" class="permalink">¶</a>
+                </h4>
+                <div>
+                    <div>
+                        Request <span class="api-method api-method-GET badge success badge success">GET</span>
+                        <code>/.json</code>
                     </div>
-                    <div class="api-action-body" style="display: block;">
+                    <div class="api-action-response">
+                        Response <code><a>200</a></code>
+                        <div style="display: block;">
+                            Headers:
+                            <pre class="ds-codeblock"><code><span>Content-Type</span>: application/json
+                            </code></pre>
+                        </div>
+                        <div class="ds-codeblock" style="display: block;">
 
-                        Body:
-                        <pre><code class="hljs json">{
-  <span class="hljs-attr">"councils"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/councils.json"</span>,
-  <span class="hljs-attr">"pollingstations"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/pollingstations.json"</span>,
-  <span class="hljs-attr">"pollingdistricts"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/pollingdistricts.json"</span>
-}
-          </code></pre>
+                            Body:
+                            <pre class="ds-codeblock"><code>{
+    <span>"councils"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/councils.json"</span>,
+    <span>"pollingstations"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/pollingstations.json"</span>,
+    <span>"pollingdistricts"</span>: <span class="hljs-string">"https://wheredoivote.co.uk/api/beta/pollingdistricts.json"</span>
+    }
+    </code></pre>
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,8 +156,7 @@
     <p>Taken with thanks from
         <a href="https://github.com/cbracco/html5-test-page">html5-test-page</a>.</p>
 
-    <section class="ds-card">
-
+    <section class="ds-stack">
         <header role="banner">
             <h1>HTML5 Test Page</h1>
             <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
@@ -274,91 +268,31 @@
                     </div>
 
                 </article>
-                <article id="text__tables">
-                    <header><h1>Tabular data</h1></header>
+                <div id="text__tables" class="ds-table">
                     <table>
-                        <caption>Table Caption</caption>
-                        <thead>
-                            <tr>
-                                <th>Table Heading 1</th>
-                                <th>Table Heading 2</th>
-                                <th>Table Heading 3</th>
-                                <th>Table Heading 4</th>
-                                <th class="number">Table Heading 5</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Table Footer 1</th>
-                                <th>Table Footer 2</th>
-                                <th>Table Footer 3</th>
-                                <th>Table Footer 4</th>
-                                <th class="number">1.99</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3 with longer text</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">0</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">1,342.54</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">42.54</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">342.54</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td><a href="#">Table Cell 1</a></td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3 </td>
-                                <td>Table Cell 4</td>
-                                <td class="number">0</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">1,342.54</td>
-                            </tr>
-                            <tr class="highlight">
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">42.54</td>
-                            </tr>
-                            <tr>
-                                <td>Table Cell 1</td>
-                                <td>Table Cell 2</td>
-                                <td>Table Cell 3</td>
-                                <td>Table Cell 4</td>
-                                <td class="number">342.54</td>
-                            </tr>
-                        </tbody>
+                        <caption>Basic table with column headers</caption>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Row 1 / row header</th>
+                            <td>Row 1 / cell 2</td>
+                            <td>Row 1 / cell 3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Row 2 / row header</th>
+                            <td>Row 2 / cell 2</td>
+                            <td>Row 2 / cell 3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Row 3 / row header</th>
+                            <td>Row 3 / cell 2</td>
+                            <td>Row 3 / cell 3</td>
+                        </tr>
                     </table>
-
-                </article>
+                </div>
                 <article id="text__code">
                     <header><h1>Code</h1></header>
                     <div>
@@ -458,8 +392,8 @@ p q r s t u v w x y z { | } ~ </pre>
             <section id="forms">
                 <header><h1>Form elements</h1></header>
                 <form>
-                    <fieldset id="forms__input">
-                        <legend>Input fields</legend>
+                    <div class="ds-field">
+                        <h3>Input fields</h3>
                         <p>
                             <label for="input__text">Text Input</label>
                             <input id="input__text" type="text" placeholder="Text Input">
@@ -489,51 +423,44 @@ p q r s t u v w x y z { | } ~ </pre>
                             <input id="input__text2" type="number" placeholder="Enter a Number">
                         </p>
                         <p>
-                            <label for="input__text3" class="error">Error</label>
-                            <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+                            <label for="input__text3">Invalid</label>
+                            <input id="input__text3" type="text" placeholder="Text Input" aria-invalid="true" aria-describedby="input__text3">
+                            <small class="ds-field-error" id="input__text3">
+                                <span role="img" aria-label="Error">❌</span>
+                                Invalid fields
+                            </small>
                         </p>
                         <p>
-                            <label for="input__text4" class="valid">Valid</label>
-                            <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+                            <label for="input__text3">Sumission errors</label>
+                            <input id="input__text3" type="text" placeholder="Text Input" aria-invalid="true" aria-describedby="input__text3">
+                            <div class="ds-error" id="input__text3">
+                                <span role="img" aria-label="Error">❌</span>
+                                Your email or password is incorrect. Forgot your password?
+                            </div>
                         </p>
-                    </fieldset>
+                    </div>
 
                     <fieldset id="forms__select">
                         <legend>Select menus</legend>
-                        <p>
-                            <label for="select">Select</label>
-                            <select id="select">
-                                <optgroup label="Option Group">
-                                    <option>Option One</option>
-                                    <option>Option Two</option>
-                                    <option>Option Three</option>
-                                </optgroup>
-                            </select>
-                        </p>
-                    </fieldset>
-
-                    <fieldset id="forms__checkbox">
-                        <legend>Checkboxes</legend>
-                        <ul class="list list--bare">
-                            <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
-                            <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
-                            <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
-                        </ul>
-                    </fieldset>
-
-                    <fieldset id="forms__radio">
-                        <legend>Radio buttons</legend>
-                        <ul class="list list--bare">
-                            <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
-                            <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
-                            <li><label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label></li>
-                        </ul>
+                        <div class="ds-stack-smallest">
+                            <label class="ds-field-radio">
+                                <input type="radio" name="democracy">
+                                <span>Representative</span>
+                            </label>
+                            <label class="ds-field-radio">
+                                <input type="radio" name="democracy">
+                                <span>Direct</span>
+                            </label>
+                            <label class="ds-field-radio">
+                                <input type="radio" name="democracy">
+                                <span>Monitory</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset id="forms__textareas">
                         <legend>Textareas</legend>
                         <p>
-                            <label for="textarea">Textarea</label>
                             <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
                         </p>
                     </fieldset>
@@ -577,16 +504,16 @@ p q r s t u v w x y z { | } ~ </pre>
                     <fieldset id="forms__action">
                         <legend>Action buttons</legend>
                         <p>
-                            <input type="submit" value="<input type=submit>">
-                            <input type="button" value="<input type=button>">
-                            <input type="reset" value="<input type=reset>">
-                            <input type="submit" value="<input disabled>" disabled>
+                            <button class="ds-button" type="button">Press me</button>
+                            <button class="ds-button" type="button" disabled>Press me</button>
+                            <button class="ds-button-blue" type="button">Press me</button>
+                            <button class="ds-button-blue" type="button" disabled>Press me</button>
                         </p>
                         <p>
-                            <button type="submit">&lt;button type=submit&gt;</button>
-                            <button type="button">&lt;button type=button&gt;</button>
-                            <button type="reset">&lt;button type=reset&gt;</button>
-                            <button type="button" disabled>&lt;button disabled&gt;</button>
+                            <a class="ds-cta" href="#">Link to something</a>
+                            <a class="ds-cta" >Link to something</a>
+                            <a class="ds-cta ds-cta-blue" href="#">Link to something</a>
+                            <a class="ds-cta ds-cta-blue" >Link to something</a>
                         </p>
                     </fieldset>
 
