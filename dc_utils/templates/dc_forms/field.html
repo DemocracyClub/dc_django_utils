@@ -1,6 +1,8 @@
 {% load dc_forms %}
 <div class="ds-field">
     {% if not field|is_heading %}
+        <h2>{{ field.label }}</h2>
+    {% else %}
         <label class="{{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{field.auto_id}}">
             {{ field.label }}
             {% if field.help_text %}
