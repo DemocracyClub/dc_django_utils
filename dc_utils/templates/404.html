@@ -12,7 +12,7 @@
             <header role="banner">
                 <div class="container">
                     <a href="/">
-                        <img src="{{ STATIC_URL }}/images/logo_icon.png" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
+                        <img src="{% if STATIC_URL %}{{ STATIC_URL }}{% endif %}/images/logo_icon.png" alt="{% if site_title %}{{ site_title }}{% endif %}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
                     </a>
                 </div>
             </header>

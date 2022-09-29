@@ -9,9 +9,11 @@
             {% block header_base %}
                 <header role="banner">
                     <div class="container">
-                        <a href="/">
-                            <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
-                        </a>
+                        {% if site_logo %}
+                            <a href="/">
+                                <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
+                            </a>
+                        {% endif %}
                         {% block site_menu %}{% endblock site_menu %}
                     </div>
                 </header>
@@ -41,5 +43,3 @@
         {% endblock in_page_javascript %}
     </body>
 {% endblock body_raw %}
-
-
