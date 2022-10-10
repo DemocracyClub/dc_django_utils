@@ -5,6 +5,18 @@ from django.core.exceptions import ValidationError
 
 from . import widgets
 
+from django.utils.translation import gettext_lazy as _
+from localflavor.gb.forms import GBPostcodeField
+
+
+class PostcodeLookupForm(forms.Form):
+    postcode = GBPostcodeField(label=_("Enter your postcode"))
+
+    def __init__(self, autofocus=False, *args, **kwargs):
+        super(PostcodeLookupForm, self).__init__(*args, **kwargs)
+        if autofocus:
+            self.fields["postcode"].widget.attrs["autofocus"] = "autofocus"
+
 
 class DCHeaderField(forms.Field):
     """
@@ -131,6 +143,7 @@ class SampleForm(forms.Form):
     clearable_file = forms.FileField(
         widget=forms.ClearableFileInput, required=False
     )
+    postcode_form = PostcodeLookupForm()
 
     def clean(self):
         super().clean()
