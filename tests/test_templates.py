@@ -25,3 +25,10 @@ def test_dc_base_template(client):
 def test_dc_base_naked_template(client):
     req = client.get("/test_dc_base_naked.html")
     assert req.status_code == 200
+
+
+def test_form_view(client):
+    resp = client.get("/")
+    assert resp.status_code == 200
+    assert b"id_postcode" in resp.content
+    assert b"Heading Field" in resp.content

@@ -9,15 +9,6 @@ from django.utils.translation import gettext_lazy as _
 from localflavor.gb.forms import GBPostcodeField
 
 
-class PostcodeLookupForm(forms.Form):
-    postcode = GBPostcodeField(label=_("Enter your postcode"))
-
-    def __init__(self, autofocus=False, *args, **kwargs):
-        super(PostcodeLookupForm, self).__init__(*args, **kwargs)
-        if autofocus:
-            self.fields["postcode"].widget.attrs["autofocus"] = "autofocus"
-
-
 class DCHeaderField(forms.Field):
     """
     A field that is just rendered as a heading.
@@ -143,7 +134,8 @@ class SampleForm(forms.Form):
     clearable_file = forms.FileField(
         widget=forms.ClearableFileInput, required=False
     )
-    postcode_form = PostcodeLookupForm()
+
+    postcode = GBPostcodeField(label=_("Enter your postcode"))
 
     def clean(self):
         super().clean()
