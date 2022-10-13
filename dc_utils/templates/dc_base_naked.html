@@ -43,7 +43,9 @@
                 <meta name="twitter:image" content="{% block twitter_image_url %}{{ CANONICAL_URL }}{% static 'images/og_image_logo.png' %}{% endblock twitter_image_url %}" />
                 <meta name="twitter:description" content="{% block twitter_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock twitter_description_content %}"/>
             {% endblock twitter_tags %}
-
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         {% endblock site_meta %}
     </head>
     {% block body_raw %}
