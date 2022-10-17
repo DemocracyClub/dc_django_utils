@@ -4,18 +4,16 @@
 {% block body_raw %}
     <body {% block body_attrs %}class="ds-width-full"{% endblock body_attrs %}>
         <div class="ds-page">
-            <p><a class="ds-skip-link" href="#main">skip to content</a></p>
-
+            <a class="ds-skip-link" href="#main">skip to content</a>
+            {% block base_language_menu %}{% endblock base_language_menu %}
             {% block header_base %}
-                <header role="banner">
-                    <div class="container">
-                        {% if site_logo %}
-                            <a href="/">
-                                <img src="{% static site_logo %}" alt="{{ site_title }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
-                            </a>
-                        {% endif %}
-                        {% block site_menu %}{% endblock site_menu %}
-                    </div>
+                <header class="ds-header">
+                    <a class="ds-logo" href="/">
+                        <img src="{% static 'images/logo_icon.svg' %}" alt="{{ SITE_TITLE }}" width="{{ SITE_LOGO_WIDTH|default:"100" }}">
+                        <span>{{ SITE_TITLE }}</span>
+                        {% block language_code %}{% endblock language_code %}
+                    </a>
+                    {% block site_menu %}{% endblock site_menu %}
                 </header>
             {% endblock header_base %}
 

@@ -5,6 +5,9 @@ from django.core.exceptions import ValidationError
 
 from . import widgets
 
+from django.utils.translation import gettext_lazy as _
+from localflavor.gb.forms import GBPostcodeField
+
 
 class DCHeaderField(forms.Field):
     """
@@ -131,6 +134,8 @@ class SampleForm(forms.Form):
     clearable_file = forms.FileField(
         widget=forms.ClearableFileInput, required=False
     )
+
+    postcode = GBPostcodeField(label=_("Enter your postcode"))
 
     def clean(self):
         super().clean()

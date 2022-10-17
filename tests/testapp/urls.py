@@ -17,13 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 
+from dc_utils.views import SampleFormView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
-        "test_dc_base.html", TemplateView.as_view(template_name="dc_base.html")
+        "test_dc_base.html",
+        TemplateView.as_view(template_name="dc_base.html"),
+        name="test_dc_base",
     ),
     path(
         "test_dc_base_naked.html",
         TemplateView.as_view(template_name="dc_base_naked.html"),
+        name="test_dc_base_naked",
     ),
+    path("", SampleFormView.as_view(), name="test_form"),
 ]

@@ -1,0 +1,10 @@
+{% extends "dc_base.html" %}
+{% block site_menu %}
+    <nav>
+    <ul>
+        <li><a href="{% url "test_form" %}">Sample Form</a></li>
+        <li><a href="{% url "test_dc_base"%}">Test dc_base.html</a></li>
+        <li><a href="{% url "test_dc_base_naked" %}">dc_base_naked.html</a></li>
+    </ul>
+    </nav>
+{% endblock %}
