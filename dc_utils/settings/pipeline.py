@@ -31,7 +31,7 @@ DEFAULT_PIPELINE = {
     "STYLESHEETS": {
         "styles": {
             "source_filenames": [],
-            "output_filename": "css/styles.css",
+            "output_filename": "scss/styles.css",
             "extra_context": {
                 "media": "screen,print",
             },
