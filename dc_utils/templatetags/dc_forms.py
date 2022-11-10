@@ -62,24 +62,35 @@ def render(element, markup_classes):
     return template.render(context)
 
 
+def _is_input_type(input_type, field):
+    if not hasattr(field.field.widget, "input_type"):
+        return False
+    return field.field.widget.input_type == input_type
+
+
 @register.filter
 def is_checkbox(field):
-    return isinstance(field.field.widget, forms.CheckboxInput)
+    return _is_input_type("checkbox", field)
 
 
 @register.filter
 def is_multiple_checkbox(field):
-    return isinstance(field.field.widget, forms.CheckboxSelectMultiple)
+    if not _is_input_type("checkbox", field):
+        return False
+    try:
+        return field.field.widget.__class__.__name__ == "CheckboxSelectMultiple"
+    except AttributeError:
+        return False
 
 
 @register.filter
 def is_radio(field):
-    return isinstance(field.field.widget, forms.RadioSelect)
+    return _is_input_type("radio", field)
 
 
 @register.filter
 def is_file(field):
-    return isinstance(field.field.widget, forms.FileInput)
+    return _is_input_type("file", field)
 
 
 @register.filter
