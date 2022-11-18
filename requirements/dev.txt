@@ -1,4 +1,4 @@
-black==22.3.0
+black==22.10.0
 isort
 ipdb
 django-pipeline==2.0.8
