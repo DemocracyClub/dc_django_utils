@@ -9,6 +9,10 @@ from django.utils.translation import gettext_lazy as _
 from localflavor.gb.forms import GBPostcodeField
 
 
+class RadioSelectCluster(forms.RadioSelect):
+    pass
+
+
 class DCHeaderField(forms.Field):
     """
     A field that is just rendered as a heading.
@@ -119,12 +123,21 @@ class SampleForm(forms.Form):
         widget=forms.CheckboxSelectMultiple,
     )
 
-    inline_radios = forms.ChoiceField(
+    radios = forms.ChoiceField(
         choices=(
             ("option_one", "Option one"),
             ("option_two", "Option two"),
         ),
         widget=forms.RadioSelect,
+        initial="option_two",
+    )
+
+    inline_radios = forms.ChoiceField(
+        choices=(
+            ("option_one", "Option one"),
+            ("option_two", "Option two"),
+        ),
+        widget=RadioSelectCluster,
         initial="option_two",
     )
 
