@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from pathlib import Path
+import dc_design_system
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "dc_utils",
+    "pipeline",
 ]
 
 MIDDLEWARE = [
@@ -104,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-gb"
 
 TIME_ZONE = "UTC"
 
@@ -116,4 +118,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "/assets/"
+STATIC_ROOT = BASE_DIR / "static_files"
+STATICFILES_DIRS = (BASE_DIR / "assets",)
+
+
+from dc_utils.settings.pipeline import *  # noqa
+from dc_utils.settings.pipeline import get_pipeline_settings
+from dc_utils.settings.whitenoise import whitenoise_add_middleware
+
+MIDDLEWARE = whitenoise_add_middleware(MIDDLEWARE)
+
+PIPELINE = get_pipeline_settings(
+    extra_css=[
+        "scss/styles.scss",
+    ],
+    extra_js=[
+        "js/date.format.js",
+    ],
+    extra_include_paths=[
+        dc_design_system.DC_SYSTEM_PATH + "/system",
+    ],
+)

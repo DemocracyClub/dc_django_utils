@@ -14,3 +14,7 @@ pytest-django
 pytest-mock
 pytest-flakes
 pytidylib
+https://github.com/DemocracyClub/design-system/archive/refs/tags/0.2.4.tar.gz
+whitenoise
+pysass
+jsmin<3.1
