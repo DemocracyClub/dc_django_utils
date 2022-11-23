@@ -93,9 +93,7 @@ class SampleForm(forms.Form):
     last_name = forms.CharField(
         label="last name", max_length=5, required=True, widget=forms.TextInput()
     )
-    datetime_field = forms.SplitDateTimeField(
-        label="date time", widget=forms.SplitDateTimeWidget()
-    )
+    date_field = DCDateField()
 
     checkboxes = forms.MultipleChoiceField(
         choices=((1, "Option one"), (2, "Option two"), (3, "Option three")),

@@ -25,7 +25,7 @@ def build_sass_args(extra_include_paths):
 
 DEFAULT_PIPELINE = {
     "COMPILERS": ("pipeline.compilers.sass.SASSCompiler",),
-    "SASS_BINARY": "sassc",
+    "SASS_BINARY": "pysassc",
     "SASS_ARGUMENTS": build_sass_args(SASS_INCLUDE_PATHS),
     "CSS_COMPRESSOR": "pipeline.compressors.NoopCompressor",
     "STYLESHEETS": {

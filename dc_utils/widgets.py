@@ -39,7 +39,7 @@ class DayMonthYearWidget(MultiWidget):
                 name + "_%s" % i, widget_value, final_attrs
             )
             html = """
-            <div class="form-group form-group-{name}">
+            <div class="ds-field">
                 <label for="{name}_{i}">{label}</label>
                 {widget_html}
             </div>
