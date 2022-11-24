@@ -1,6 +1,6 @@
 {% load dc_forms %}
 <div class="ds-field">
-    <fieldset>
+    <fieldset class="ds-cluster ds-cluster-tight">
         <legend>{{ field.label }}</legend>
         <div class="ds-stack-smallest">
             {% for radio in field %}
@@ -8,7 +8,6 @@
                     {{ radio.tag }}
                     <span>{{ radio.choice_label }}</span>
                 </label>
-
             {% endfor %}
         </div>
     </fieldset>

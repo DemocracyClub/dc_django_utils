@@ -85,7 +85,22 @@ def is_multiple_checkbox(field):
 
 @register.filter
 def is_radio(field):
-    return _is_input_type("radio", field)
+    if not _is_input_type("radio", field):
+        return False
+    try:
+        return field.field.widget.__class__.__name__ == "RadioSelect"
+    except AttributeError:
+        return False
+
+
+@register.filter
+def is_radio_cluster(field):
+    if not _is_input_type("radio", field):
+        return False
+    try:
+        return field.field.widget.__class__.__name__ == "RadioSelectCluster"
+    except AttributeError:
+        return False
 
 
 @register.filter
