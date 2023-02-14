@@ -13,7 +13,7 @@
 {% endfor %}
 
 {% for field in form.visible_fields %}
-    {% if field.errors %}<div class="ds-error">{% endif %}
+
     {% if field|is_dc_date_field %}
         {% include 'dc_forms/field_date.html' %}
     {% elif field|is_radio %}
@@ -27,6 +27,11 @@
     {% else %}
         {% include 'dc_forms/field.html' %}
     {% endif %}
-    {% if field.errors %}</div>{% endif %}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="ds-error">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endfor %}
-
