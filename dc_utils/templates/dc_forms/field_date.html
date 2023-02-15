@@ -1,12 +1,5 @@
 <fieldset>
     <legend>{% if field.help_text %}{{ field.help_text }}{% else %}{{field.label}}{% endif %}</legend>
-    {% if field.errors %}
-        <div class="ds-error">
-            {% for error in field.errors %}
-                <span role="img" aria-label="Error">❌ {{ error }}</span>
-            {% endfor %}
-        </div>
-    {% endif %}
     <div class="ds-date">
         {{ field}}
     </div>
