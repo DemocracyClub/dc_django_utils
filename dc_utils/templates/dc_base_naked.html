@@ -40,7 +40,7 @@
                 <meta name="twitter:card" content="{% block twitter_card_type %}summary_large_image{% endblock twitter_card_type %}">
                 <meta name="twitter:site" content="@democlub">
                 <meta name="twitter:image:alt" content="Democracy Club">
-                <meta name="twitter:image" content="{% block twitter_image_url %}{{ CANONICAL_URL }}{% static 'images/twitter_large_summary_card.png' %}{% endblock twitter_image_url %}" />
+                <meta name="twitter:image" content="{% block twitter_image %}{{ CANONICAL_URL }}{% static 'images/twitter_large_summary_card.png' %}{% endblock twitter_image %}" />
                 <meta name="twitter:description" content="{% block twitter_description_content %}We build digital tools to support everyone’s participation in UK democracy.{% endblock twitter_description_content %}"/>
             {% endblock twitter_tags %}
             <meta name="viewport" content="width=device-width, initial-scale=1">
