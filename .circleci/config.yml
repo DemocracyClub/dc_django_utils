@@ -42,10 +42,13 @@ jobs:
           name: Black
           command: |
             black . --check
+      - run: mkdir -p test-results
       - run:
           name: Pytest
           command: |
-            pytest -sx
+            pytest --junitxml=test-results/junit.xml -o junit_family=legacy -sx
+      - store_test_results:
+          path: test-results
 
 workflows:
   tests:
@@ -56,3 +59,4 @@ workflows:
             parameters:
               python_version: [ py38, py39, py310 ]
               django_version: [ ">=3.2,<4.0", ">=4.0,<4.1", ">=4.1,<4.2" ]
+
