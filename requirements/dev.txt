@@ -2,7 +2,7 @@ black==22.10.0
 isort
 ipdb
 django-pipeline==2.0.8
-Django>=3.2,<4.2
+Django>=3.2,<4.3
 markdown
 django-localflavor==3.1
 setuptools==65.5.1
