@@ -40,6 +40,10 @@ if settings.DEBUG:
 ### Add the following line with the [latest version](https://github.com/DemocracyClub/dc_django_utils/releases) to `requirements.txt':
 `git+https://github.com/DemocracyClub/dc_django_utils.git@[hash]`
 
+### Using the DS Link Widget 
+
+ The DS Link Widget in [filter_widgets](dc_utils/filter_widgets.py) extends the Link Widget from django-filter in order to customize its html. Your project will therefore need to have [django-filter](https://github.com/carltongibson/django-filter) already installed if you want to use it.
+
 ### Local Development
 Install the dev dependencies:
 
