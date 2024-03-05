@@ -1,14 +1,16 @@
 {% extends "dc_base.html" %}
 {% load pipeline %}
 {% block extra_site_css %}
-{% stylesheet 'styles' %}
+    {% stylesheet 'styles' %}
 {% endblock extra_site_css %}
 {% block site_menu %}
     <nav>
-    <ul>
-        <li><a href="{% url "test_form" %}">Sample Form</a></li>
-        <li><a href="{% url "test_dc_base"%}">Test dc_base.html</a></li>
-        <li><a href="{% url "test_dc_base_naked" %}">dc_base_naked.html</a></li>
-    </ul>
+        <ul>
+            <li><a href="{% url "test_form" %}">Sample Form</a></li>
+            <li><a href="{% url "test_dc_base" %}">Test dc_base.html</a></li>
+            <li><a href="{% url "test_dc_base_naked" %}">dc_base_naked.html</a></li>
+            <li><a href="{% url "500" %}">500 error page</a></li>
+            <li><a href="{% url "404" %}">404 error page</a></li>
+        </ul>
     </nav>
 {% endblock %}

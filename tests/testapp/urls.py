@@ -32,4 +32,10 @@ urlpatterns = [
         name="test_dc_base_naked",
     ),
     path("", SampleFormView.as_view(), name="test_form"),
+    path(
+        "500.html", TemplateView.as_view(template_name="500.html"), name="500"
+    ),
+    path(
+        "404.html", TemplateView.as_view(template_name="404.html"), name="404"
+    ),
 ]
