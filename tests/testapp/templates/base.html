@@ -14,3 +14,14 @@
         </ul>
     </nav>
 {% endblock %}
+{% block footer_menu %}
+    <div class="ds-cluster-center">
+        <ul>
+            <li><a href="{% url "test_form" %}">Sample Form</a></li>
+            <li><a href="{% url "test_dc_base" %}">Test dc_base.html</a></li>
+            <li><a href="{% url "test_dc_base_naked" %}">dc_base_naked.html</a></li>
+            <li><a href="{% url "500" %}">500 error page</a></li>
+            <li><a href="{% url "404" %}">404 error page</a></li>
+        </ul>
+    </div>
+{% endblock footer_menu %}

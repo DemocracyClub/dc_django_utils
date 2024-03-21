@@ -1,5 +1,6 @@
 {% extends "dc_base_naked.html" %}
 {% load static %}
+{% load i18n %}
 {% load pipeline %}
 {% block extra_site_css %}
     {% stylesheet 'styles' %}
@@ -45,7 +46,45 @@
             {% endblock main_base %}
 
             {% block footer_base %}
+                <footer class="ds-footer">
+                    <div class="ds-block-centered ds-text-centered ds-stack">
+                        {% block mailing_list %}
+                            <div class="ds-dark">
+                                <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
+                                    Join our mailing list
+                                </a>
+                            </div>
+                        {% endblock mailing_list %}
+                        {% block footer_menu %}
+                        {% endblock footer_menu %}
+                        {% block footer_logo %}
+                            <div class="ds-copyright">
+                                <a class="ds-logo" href="/">
+                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club" />
+                                    <span class="ds-text-left">
+                                        democracy<br>club
+                                    </span>
+
+                                </a>
+                                {% now "Y" as current_year %}
+                                <p>{% blocktrans trimmed %}Copyright &copy; {{ current_year }}{% endblocktrans %}</p>
+                                <p>{% trans "Democracy Club Community Interest Company" %}</p>
+                                <p>{% blocktrans trimmed %}Company No: <a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a>{% endblocktrans %}</p>
+                                <p class="ds-text-centered">
+                                    {% blocktrans trimmed %}
+                                        Democracy Club is a UK-based Community Interest Company that builds
+                                        the digital infrastructure needed for a 21st century democracy
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        {% endblock footer_logo %}
+                        {% block extra_footer_text %}
+                        {% endblock extra_footer_text %}
+                    </div>
+                </footer>
             {% endblock footer_base %}
+
+
         </div>
 
         {% block extra_site_js %}
