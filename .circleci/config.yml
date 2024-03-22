@@ -42,6 +42,18 @@ jobs:
           name: Black
           command: |
             black . --check
+      - run:
+          name: Curly Lint
+          command: | 
+            curlylint .
+      - run:
+          name: Ruff lint
+          command: |  
+            ruff check .
+      - run:
+          name: Ruff Format
+          command: | 
+            ruff format .
       - run: mkdir -p test-results
       - run:
           name: Pytest
