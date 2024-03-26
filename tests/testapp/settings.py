@@ -124,8 +124,8 @@ STATICFILES_DIRS = (BASE_DIR / "assets",)
 
 
 from dc_utils.settings.pipeline import *  # noqa
-from dc_utils.settings.pipeline import get_pipeline_settings
-from dc_utils.settings.whitenoise import whitenoise_add_middleware
+from dc_utils.settings.pipeline import get_pipeline_settings  # noqa
+from dc_utils.settings.whitenoise import whitenoise_add_middleware  # noqa
 
 MIDDLEWARE = whitenoise_add_middleware(MIDDLEWARE)
 
