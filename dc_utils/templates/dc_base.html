@@ -16,8 +16,8 @@
                 <header class="ds-header">
                     <a class="ds-logo" href="/">
                         <img src="{% static 'images/logo_icon.svg' %}" alt="{{ SITE_TITLE }}" width="72">
-                        <span>{{ SITE_TITLE }}</span>
-                        {% block language_code %}{% endblock language_code %}
+                        <span>{{ SITE_TITLE }}{% block language_code %}{% endblock language_code %}</span>
+
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
                 </header>
@@ -51,7 +51,7 @@
                         {% block mailing_list %}
                             <div class="ds-dark">
                                 <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
-                                    Join our mailing list
+                                    {% trans "Join our mailing list" %}
                                 </a>
                             </div>
                         {% endblock mailing_list %}
@@ -62,7 +62,7 @@
                                 <a class="ds-logo" href="/">
                                     <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club" />
                                     <span class="ds-text-left">
-                                        democracy<br>club
+                                        {% trans "democracy"%}<br>{% trans "club" %}
                                     </span>
 
                                 </a>
