@@ -1,6 +1,21 @@
+[project]
+name = "dc_django_utils"
+version = "2.6.0"
+description = "This is a package to provide some common utilities for Django projects at Democracy Club."
+readme = "README.md"
+authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
+
+[project.urls]
+Homepage = "https://github.com/DemocracyClub/dc_django_utils"
+Changelog = "https://github.com/DemocracyClub/dc_django_utils/releases"
+Issues = "https://github.com/DemocracyClub/dc_django_utils/issues"
+
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 80
+
+[project.optional-dependencies]
+test = ["pytest"]
