@@ -22,7 +22,7 @@ dependencies = [
 	"pytest-flakes",
 	"pytest-ruff",
 	"pytidylib",
-	"dc_design_system @ https://github.com/DemocracyClub/design-system/releases/tag/0.4.6", 
+	"dc_design_system @ git+https://github.com/DemocracyClub/dc_django_utils.git", 
 	"whitenoise",
 	"pysass",
 	"jsmin<3.1",
