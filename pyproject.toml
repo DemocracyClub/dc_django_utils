@@ -4,6 +4,7 @@ version = "2.6.4"
 description = "This is a package to provide some common utilities for Django projects at Democracy Club."
 readme = "README.md"
 authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
+
 dependencies = [
 	"django>=3.2,<4.3",
 	"black", 
@@ -22,7 +23,7 @@ dependencies = [
 	"pytest-flakes",
 	"pytest-ruff",
 	"pytidylib",
-	"dc-design-system @ https://github.com/DemocracyClub/design-system/archive/0.4.6.zip#sha1=3fedf363770c5fda9c9b883b97b5ecae44be2793",	
+	"dc-design-system @ git+https://github.com/DemocracyClub/design-system.git@0.4.6",	
 	"whitenoise",
 	"pysass",
 	"jsmin<3.1",
