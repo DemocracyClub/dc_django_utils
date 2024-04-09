@@ -4,6 +4,29 @@ version = "2.6.0"
 description = "This is a package to provide some common utilities for Django projects at Democracy Club."
 readme = "README.md"
 authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
+dependencies = [
+	"django>=3.2,<4.3",
+	"black", 
+	"curlylint",
+	"isort",
+	"ipdb",
+	"django-pipeline==2.1.0",
+	"markdown",
+	"django-localflavor==3.1",
+	"setuptools==65.5.1",
+	"pre-commit",
+	"djhtml",
+	"pytest",
+	"pytest-django",
+	"pytest-mock",
+	"pytest-flakes",
+	"pytest-ruff",
+	"pytidylib",
+	"dc_design_system @ https://github.com/DemocracyClub/design-system/archive/refs/tags/0.4.6.tar.gz", 
+	"whitenoise",
+	"pysass",
+	"jsmin<3.1",
+]
 
 [project.urls]
 Homepage = "https://github.com/DemocracyClub/dc_django_utils"
@@ -18,4 +41,4 @@ build-backend = "setuptools.build_meta"
 line-length = 80
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "pytest-flakes"]
