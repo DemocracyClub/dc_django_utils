@@ -1,6 +1,6 @@
 [project]
 name = "dc_django_utils"
-version = "2.6.2"
+version = "2.6.3"
 description = "This is a package to provide some common utilities for Django projects at Democracy Club."
 readme = "README.md"
 authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
