@@ -16,7 +16,7 @@ pytest-mock
 pytest-flakes
 pytest-ruff
 pytidylib
-https://github.com/DemocracyClub/design-system/archive/refs/tags/0.4.6.tar.gz
+git+https://github.com/DemocracyClub/design-system.git@0.4.6
 whitenoise
 pysass
 jsmin<3.1
