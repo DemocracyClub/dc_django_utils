@@ -17,7 +17,6 @@
                     <a class="ds-logo" href="/">
                         <img src="{% static 'images/logo_icon.svg' %}" alt="{{ SITE_TITLE }}" width="72">
                         <span>{{ SITE_TITLE }}{% block language_code %}{% endblock language_code %}</span>
-
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
                 </header>
@@ -67,29 +66,27 @@
 
                                 </a>
                                 {% now "Y" as current_year %}
-                                <p>{% blocktrans trimmed %}Copyright &copy; {{ current_year }}{% endblocktrans %}</p>
+                                <p>{% blocktrans %}Copyright &copy; {{ current_year }}{% endblocktrans %}</p>
                                 <p>{% trans "Democracy Club Community Interest Company" %}</p>
-                                <p>{% blocktrans trimmed %}Company No: <a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a>{% endblocktrans %}</p>
-                                <p class="ds-text-centered">
-                                    {% blocktrans trimmed %}
-                                        Building digital infrastructure for a 21st century democracy.
-                                    {% endblocktrans %}
-                                </p>
-                            </div>
-                        {% endblock footer_logo %}
-                        {% block extra_footer_text %}
-                        {% endblock extra_footer_text %}
-                    </div>
-                </footer>
-            {% endblock footer_base %}
-
-
+                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a>{% endblocktrans %}</p>
+                    <p class="ds-text-centered">
+                        {% trans "Building digital infrastructure for a 21st century democracy." %}
+                    </p>
+                </div>
+            {% endblock footer_logo %}
+            {% block extra_footer_text %}
+            {% endblock extra_footer_text %}
         </div>
+    </footer>
+{% endblock footer_base %}
 
-        {% block extra_site_js %}
-        {% endblock extra_site_js %}
 
-        {% block in_page_javascript %}
-        {% endblock in_page_javascript %}
-    </body>
+</div>
+
+{% block extra_site_js %}
+{% endblock extra_site_js %}
+
+{% block in_page_javascript %}
+{% endblock in_page_javascript %}
+</body>
 {% endblock body_raw %}
