@@ -66,16 +66,21 @@
 
                                 </a>
                                 {% now "Y" as current_year %}
-                                <p>{% blocktrans %}Copyright &copy; {{ current_year }}{% endblocktrans %}</p>
+                                <p>{% trans "Copyright"%} &copy;{{ current_year }}</p>
                                 <p>{% trans "Democracy Club Community Interest Company" %}</p>
-                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a>{% endblocktrans %}</p>
-                    <p class="ds-text-centered">
-                        {% trans "Building digital infrastructure for a 21st century democracy." %}
-                    </p>
-                </div>
-            {% endblock footer_logo %}
-            {% block extra_footer_text %}
-            {% endblock extra_footer_text %}
+                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
+                                <p class="ds-text-centered">
+                                    {% trans "Building digital infrastructure for a 21st century democracy." %}
+                                </p>
+                            </div>
+                        {% endblock footer_logo %}
+                        {% block extra_footer_text %}
+                        {% endblock extra_footer_text %}
+                    </div>
+                </footer>
+            {% endblock footer_base %}
+
+
         </div>
     </footer>
 {% endblock footer_base %}
