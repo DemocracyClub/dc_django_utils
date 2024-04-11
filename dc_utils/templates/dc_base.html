@@ -15,7 +15,7 @@
             {% block header_base %}
                 <header class="ds-header">
                     <a class="ds-logo" href="/">
-                        <img src="{% static 'images/logo_icon.svg' %}" alt="{{ SITE_TITLE }}" width="72">
+                        <img src="{% static 'images/logo_icon.svg' %}" alt="Democracy Club logo" width="72">
                         <span>{{ SITE_TITLE }}{% block language_code %}{% endblock language_code %}</span>
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
@@ -59,7 +59,7 @@
                         {% block footer_logo %}
                             <div class="ds-copyright">
                                 <a class="ds-logo" href="https://democracyclub.org.uk/">
-                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club" />
+                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club logo" />
                                     <span class="ds-text-left">
                                         {% trans "democracy"%}<br>{% trans "club" %}
                                     </span>
