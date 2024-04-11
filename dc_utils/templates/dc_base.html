@@ -15,7 +15,7 @@
             {% block header_base %}
                 <header class="ds-header">
                     <a class="ds-logo" href="/">
-                        <img src="{% static 'images/logo_icon.svg' %}" alt="{{ SITE_TITLE }}" width="72">
+                        <img src="{% static 'images/logo_icon.svg' %}" alt="Democracy Club logo" width="72">
                         <span>{{ SITE_TITLE }}{% block language_code %}{% endblock language_code %}</span>
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
@@ -59,34 +59,31 @@
                         {% block footer_logo %}
                             <div class="ds-copyright">
                                 <a class="ds-logo" href="https://democracyclub.org.uk/">
-                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club" />
+                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club logo" />
                                     <span class="ds-text-left">
                                         {% trans "democracy"%}<br>{% trans "club" %}
                                     </span>
 
                                 </a>
                                 {% now "Y" as current_year %}
-                                <p>{% blocktrans %}Copyright &copy; {{ current_year }}{% endblocktrans %}</p>
+                                <p>{% trans "Copyright"%} &copy; {{ current_year }}</p>
                                 <p>{% trans "Democracy Club Community Interest Company" %}</p>
-                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a>{% endblocktrans %}</p>
-                    <p class="ds-text-centered">
-                        {% trans "Building digital infrastructure for a 21st century democracy." %}
-                    </p>
-                </div>
-            {% endblock footer_logo %}
-            {% block extra_footer_text %}
-            {% endblock extra_footer_text %}
+                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
+                                <p class="ds-text-centered">
+                                    {% trans "Building digital infrastructure for a 21st century democracy." %}
+                                </p>
+                            </div>
+                        {% endblock footer_logo %}
+                        {% block extra_footer_text %}
+                        {% endblock extra_footer_text %}
+                    </div>
+                </footer>
+            {% endblock footer_base %}
         </div>
-    </footer>
-{% endblock footer_base %}
+        {% block extra_site_js %}
+        {% endblock extra_site_js %}
 
-
-</div>
-
-{% block extra_site_js %}
-{% endblock extra_site_js %}
-
-{% block in_page_javascript %}
-{% endblock in_page_javascript %}
-</body>
+        {% block in_page_javascript %}
+        {% endblock in_page_javascript %}
+    </body>
 {% endblock body_raw %}
