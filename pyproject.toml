@@ -24,7 +24,7 @@ dependencies = [
 	"pytest-flakes",
 	"pytest-ruff",
 	"pytidylib",
-	"dc-design-system @ https://github.com/DemocracyClub/design-system/archive/0.5.0.zip#sha1=993897caa852caeb603bf291c420f5ea13ffb2b4",	
+	"dc-design-system @ https://github.com/DemocracyClub/design-system/archive/0.5.0.zip#sha1=8450de8c30f16539d0619df8fcc9106f4ab905e7",
 	"whitenoise",
 	"pysass",
 	"jsmin<3.1",
