@@ -6,7 +6,6 @@
     {% stylesheet 'styles' %}
 {% endblock extra_site_css %}
 
-
 {% block body_raw %}
     <body {% block body_attrs %}class="ds-width-full"{% endblock body_attrs %}>
         <div class="ds-page">
@@ -50,29 +49,22 @@
                         {% block mailing_list %}
                             <div class="ds-dark">
                                 <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
-                                    {% trans "Join our mailing list" %}
+                                    {% if LANGUAGE_CODE == 'cy' %}
+                                        Ymunwch â'n rhestr bostio
+                                    {% else %}
+                                        Join our mailing list
+                                    {% endif %}
                                 </a>
                             </div>
                         {% endblock mailing_list %}
                         {% block footer_menu %}
                         {% endblock footer_menu %}
                         {% block footer_logo %}
-                            <div class="ds-copyright">
-                                <a class="ds-logo" href="https://democracyclub.org.uk/">
-                                    <img src="{% static 'images/logo_icon.svg' %}" width="72" alt="Democracy Club logo" />
-                                    <span class="ds-text-left">
-                                        {% trans "democracy"%}<br>{% trans "club" %}
-                                    </span>
-
-                                </a>
-                                {% now "Y" as current_year %}
-                                <p>{% trans "Copyright"%} &copy; {{ current_year }}</p>
-                                <p>{% trans "Democracy Club Community Interest Company" %}</p>
-                                <p>{% trans "Company No: " %}<a href="https://beta.companieshouse.gov.uk/company/09461226">09461226</a></p>
-                                <p class="ds-text-centered">
-                                    {% trans "Building digital infrastructure for a 21st century democracy." %}
-                                </p>
-                            </div>
+                            {% if LANGUAGE_CODE == 'cy' %}
+                                {% include 'includes/cy-footer.html' %}
+                            {% else %}
+                                {% include 'includes/en-footer.html' %}
+                            {% endif %}
                         {% endblock footer_logo %}
                         {% block extra_footer_text %}
                         {% endblock extra_footer_text %}
