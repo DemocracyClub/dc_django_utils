@@ -68,6 +68,15 @@ the header. You need to include the `Basic ` part in the value.
 
 Then set this to `BASIC_AUTH_VALUE` in `settings.py`.
 
+#### Allow lists
+
+There may be some paths that you never want to be behind HTTP Basic Auth.
+
+In this case, create `settings.BASIC_AUTH_ALLOWLIST` as a list of strings.
+
+The strings can contain wildcards, so for example `/foo/*` would allow 
+access to every path under `/foo/`.
+
 
 ### Local Development
 Install the dev dependencies:

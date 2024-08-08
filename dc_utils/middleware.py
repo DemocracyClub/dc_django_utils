@@ -1,3 +1,4 @@
+import fnmatch
 import os
 
 from django.conf import settings
@@ -21,10 +22,15 @@ class BasicAuthMiddleware:
     def __call__(self, request):
         if not self.auth_enabled:
             return self.get_response(request)
+
         # Check for Authorization header
         auth_header = request.headers.get("Authorization")
         if auth_header and auth_header == self.required_auth_header:
             return self.get_response(request)
+
+        for pattern in getattr(settings, "BASIC_AUTH_ALLOWLIST", []):
+            if fnmatch.fnmatch(request.path.rstrip("/"), pattern.rstrip("/")):
+                return self.get_response(request)
 
         # If authorization fails, return 401 Unauthorized
         response = HttpResponse("Unauthorized", status=401)
