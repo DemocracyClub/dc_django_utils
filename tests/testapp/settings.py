@@ -50,6 +50,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "dc_utils.middleware.BasicAuthMiddleware",
 ]
 
 ROOT_URLCONF = "tests.testapp.urls"

@@ -44,6 +44,40 @@ if settings.DEBUG:
 
  The DS Link Widget in [filter_widgets](dc_utils/filter_widgets.py) extends the Link Widget from django-filter in order to customize its html. Your project will therefore need to have [django-filter](https://github.com/carltongibson/django-filter) already installed if you want to use it.
 
+### Basic auth middleware
+
+If you want to hide your site behind HTTP Basic Auth, you can use the 
+`BasicAuthMiddleware`:
+
+In your `settings.py` add the following to `MIDDLEWARE`:
+
+`"dc_utils.context_processors.dc_django_utils",`
+
+By default this will be enabled if the `DC_ENVIRONMENT` environment variable 
+is set to one of `staging` or `development`. If you want to enable it anyway,
+set `BASIC_AUTH_ENABLED = True` in `settings.py`.
+
+The default username and password is `dc`. This isn't meant to be secure (if 
+you want to hide the site in a secure way, use a different authorization 
+system!). 
+
+If you want to change the default, you need to make a new header value. This 
+is in the format of `Basic [base64 encoded username:password`. Use [this 
+handy tool](https://www.debugbear.com/basic-auth-header-generator) to make 
+the header. You need to include the `Basic ` part in the value.
+
+Then set this to `BASIC_AUTH_VALUE` in `settings.py`.
+
+#### Allow lists
+
+There may be some paths that you never want to be behind HTTP Basic Auth.
+
+In this case, create `settings.BASIC_AUTH_ALLOWLIST` as a list of strings.
+
+The strings can contain wildcards, so for example `/foo/*` would allow 
+access to every path under `/foo/`.
+
+
 ### Local Development
 Install the dev dependencies:
 
