@@ -11,7 +11,7 @@ Common templates include:
 
 - `base_naked.html`: This template includes the basic html doc structure and template tags encasing details for open graph tags. Additional template tags for page titles, site css, site and page meta as well as body are included here. 
 - `base.html`: This template includes content and template tags for the page body. Basic `dc_design_system` branding and page structure is included here - header, nav, footer - as well as template tags for js and google analytics tracking code. 
-- Server Error (`500.html`) and Page Not Found (`404.html`): Using (Django's built-in views)[https://docs.djangoproject.com/en/4.0/ref/views/#the-404-page-not-found-view] for these templates breaks the static pipeline meaning we cannot rely on the base templates mentioned above and need repeat the basic template structure with absolute (rather than static) paths to branding assets. 
+- Server Error (`500.html`) and Page Not Found (`404.html`): Using [Django's built-in views](https://docs.djangoproject.com/en/4.0/ref/views/#the-404-page-not-found-view) for these templates breaks the static pipeline meaning we cannot rely on the base templates mentioned above and need repeat the basic template structure with absolute (rather than static) paths to branding assets. 
 
 Common assets include those files found in `/static/..` and `/static/favicon` which are used in the base templates.
 ### Usage
