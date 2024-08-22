@@ -1,6 +1,6 @@
 [project]
 name = "dc_django_utils"
-version = "6.1.0"
+dynamic = ["version"]
 description = "This is a package to provide some common utilities for Django projects at Democracy Club."
 readme = "README.md"
 authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
@@ -17,7 +17,9 @@ dependencies = [
     "pytidylib",
 ]
 
-
+[tool.setuptools.dynamic]
+# set the package version number from __version__
+version = {attr = "dc_utils.__version__"}
 
 [project.urls]
 Homepage = "https://github.com/DemocracyClub/dc_django_utils"
