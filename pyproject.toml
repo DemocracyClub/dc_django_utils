@@ -17,6 +17,26 @@ dependencies = [
     "pytidylib",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "black==22.10.0",
+    "curlylint==0.13.1",
+    "isort==5.13.2",
+    "djhtml==3.0.6",
+    "ruff==0.6.1",
+    "pre-commit==3.8.0",
+    "ipdb==0.13.13",
+    "pytest==8.3.2",
+    "pytest-django==4.8.0",
+    "pytest-mock==3.14.0",
+    "pytest-flakes==4.0.5",
+    "pytest-ruff==0.4.1",
+    "dc-design-system @ https://github.com/DemocracyClub/design-system/archive/refs/tags/0.5.0.tar.gz",
+]
+ci = [
+    "tox==4.18.0"
+]
+
 [tool.setuptools.dynamic]
 # set the package version number from __version__
 version = {attr = "dc_utils.__version__"}
@@ -32,6 +52,3 @@ build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 80
-
-[project.optional-dependencies]
-test = ["pytest", "pytest-flakes"]
