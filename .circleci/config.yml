@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Ruff Format
           command: | 
-            ruff format .
+            ruff format . --check
       - run: mkdir -p test-results
       - run:
           name: Pytest
