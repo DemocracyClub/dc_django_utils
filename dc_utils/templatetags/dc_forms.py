@@ -26,7 +26,7 @@ def add_input_classes(field):
 def dc_form(element):
     if not isinstance(element, forms.BaseForm):
         # if called without a form object, return without rendering
-        return
+        return None
     markup_classes = {"label": "", "value": "", "single_value": ""}
     return render(element, markup_classes)
 

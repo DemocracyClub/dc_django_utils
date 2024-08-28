@@ -1,7 +1,7 @@
 from django import http
 from django.conf import settings
-from django.urls import re_path
 from django.template import TemplateDoesNotExist, loader
+from django.urls import re_path
 from django.views.decorators.csrf import requires_csrf_token
 from django.views.defaults import ERROR_500_TEMPLATE_NAME, page_not_found
 from django.views.generic import TemplateView

@@ -1,4 +1,4 @@
-from dc_utils.tests.helpers import validate_html_str, validate_html
+from dc_utils.tests.helpers import validate_html, validate_html_str
 
 
 def test_validate_html_str():
