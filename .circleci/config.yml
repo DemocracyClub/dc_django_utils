@@ -36,9 +36,9 @@ jobs:
           command: |
             python manage.py check
       - run:
-          name: Curly Lint
-          command: | 
-            curlylint .
+          name: Djhtml
+          command: |
+            git ls-files '*.html' | xargs djhtml --check
       - run:
           name: Ruff lint
           command: |  

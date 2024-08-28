@@ -19,7 +19,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "curlylint==0.13.1",
     "djhtml==3.0.6",
     "ruff==0.6.1",
     "pre-commit>=3.0.0",
