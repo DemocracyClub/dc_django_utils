@@ -47,3 +47,14 @@ Issues = "https://github.com/DemocracyClub/dc_django_utils/issues"
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 80
+lint.ignore = ["E501"]
+lint.extend-select = [
+    "I",
+    "C4",
+    "SIM",
+    "Q003",
+    "RET",
+]
