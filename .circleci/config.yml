@@ -36,10 +36,6 @@ jobs:
           command: |
             python manage.py check
       - run:
-          name: Black
-          command: |
-            black . --check
-      - run:
           name: Curly Lint
           command: | 
             curlylint .

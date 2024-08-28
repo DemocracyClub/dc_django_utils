@@ -1,8 +1,11 @@
 repos:
--   repo: https://github.com/ambv/black
-    rev: 21.7b0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # keep in step with verison in pyproject.toml
+    rev: v0.6.1
     hooks:
-    - id: black
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
 -   repo: https://github.com/rtts/djhtml
     rev: v1.4.9
     hooks:
