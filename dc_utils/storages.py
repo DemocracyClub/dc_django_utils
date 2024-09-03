@@ -1,4 +1,4 @@
-from urllib.parse import urlsplit, urlunsplit, unquote
+from urllib.parse import unquote, urlsplit, urlunsplit
 
 from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
 from pipeline.storage import PipelineMixin
@@ -20,10 +20,13 @@ class StaticStorage(PipelineMixin, ManifestStaticFilesStorage):
         clean_name = parsed_name.path.strip()
         hash_key = self.hash_key(clean_name)
         cache_name = self.hashed_files.get(hash_key)
-        if cache_name is None:
-            # This bit below is changed from the parent class
-            if not self.manifest_strict:
-                return name
+
+        # ---
+        # This bit is changed from the parent class
+        if cache_name is None and not self.manifest_strict:
+            return name
+        # ---
+
         unparsed_name = list(parsed_name)
         unparsed_name[2] = cache_name
         # Special casing for a @font-face hack, like url(myfont.eot?#iefix")

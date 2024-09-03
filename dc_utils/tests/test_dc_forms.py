@@ -17,7 +17,7 @@ class TestDCForms:
         mocker.patch("dc_utils.templatetags.dc_forms.render", mock_render)
         form = forms.Form()
         assert dc_form(element=form) == "rendered_form"
-        mock_render.called_once_with(
+        mock_render.assert_called_once_with(
             form, {"label": "", "value": "", "single_value": ""}
         )
 
@@ -35,6 +35,6 @@ class TestDCForms:
         mocker.patch("dc_utils.templatetags.dc_forms.render", mock_render)
 
         assert dc_form(element=form) == "rendered_form"
-        mock_render.called_once_with(
+        mock_render.assert_called_once_with(
             form, {"label": "", "value": "", "single_value": ""}
         )

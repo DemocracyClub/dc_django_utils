@@ -5,9 +5,9 @@ try:
 except ImportError:
     raise ImportError("Filter widgets requires Django-Filter to be installed")
 
-from django.utils.safestring import mark_safe
 from django.db.models import BLANK_CHOICE_DASH
 from django.utils.encoding import force_str
+from django.utils.safestring import mark_safe
 
 __all__ = ("DSLinkWidget",)
 

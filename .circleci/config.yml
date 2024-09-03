@@ -1,15 +1,12 @@
 version: 2.1
 
 executors:
-  py38:
-    docker:
-      - image: cimg/python:3.8
-  py39:
-    docker:
-      - image: cimg/python:3.9
   py310:
     docker:
       - image: cimg/python:3.10
+  py312:
+    docker:
+      - image: cimg/python:3.12
 
 jobs:
   run_tests:
@@ -39,13 +36,9 @@ jobs:
           command: |
             python manage.py check
       - run:
-          name: Black
+          name: Djhtml
           command: |
-            black . --check
-      - run:
-          name: Curly Lint
-          command: | 
-            curlylint .
+            git ls-files '*.html' | xargs djhtml --check
       - run:
           name: Ruff lint
           command: |  
@@ -53,7 +46,7 @@ jobs:
       - run:
           name: Ruff Format
           command: | 
-            ruff format .
+            ruff format . --check
       - run: mkdir -p test-results
       - run:
           name: Pytest
@@ -69,6 +62,6 @@ workflows:
 
           matrix:
             parameters:
-              python_version: [ py38, py39, py310 ]
-              django_version: [ ">=3.2,<4.0", ">=4.0,<4.1", ">=4.1,<4.2" ]
+              python_version: [ py310, py312 ]
+              django_version: [ ">=4.2,<4.3", ">=5.1,<5.2" ]
 

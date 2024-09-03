@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
 
 dependencies = [
-    "django>=3.2,<4.3",
+    "django>=4.2",
     "django-pipeline>=3.0.0",
     "markdown",
     "django-localflavor>=4.0",
@@ -19,9 +19,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black==22.10.0",
-    "curlylint==0.13.1",
-    "isort==5.13.2",
     "djhtml==3.0.6",
     "ruff==0.6.1",
     "pre-commit>=3.0.0",
@@ -50,5 +47,13 @@ Issues = "https://github.com/DemocracyClub/dc_django_utils/issues"
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.black]
+[tool.ruff]
 line-length = 80
+lint.ignore = ["E501"]
+lint.extend-select = [
+    "I",
+    "C4",
+    "SIM",
+    "Q003",
+    "RET",
+]

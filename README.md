@@ -83,7 +83,7 @@ Install the dev dependencies:
 
     pip install -e .[dev]
 
-This project uses [pre-commit](https://pre-commit.com/#quick-start) to run `black` and `djhtml` before each commit. To enable this, after installing the dev dependencies run:
+This project uses [pre-commit](https://pre-commit.com/#quick-start) to run `ruff` and `djhtml` before each commit. To enable this, after installing the dev dependencies run:
 
 `pre-commit install`
 
