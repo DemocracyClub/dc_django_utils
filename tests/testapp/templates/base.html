@@ -14,14 +14,34 @@
         </ul>
     </nav>
 {% endblock %}
-{% block footer_menu %}
-    <div class="ds-cluster-center">
-        <ul>
-            <li><a href="{% url "test_form" %}">Sample Form</a></li>
-            <li><a href="{% url "test_dc_base" %}">Test dc_base.html</a></li>
-            <li><a href="{% url "test_dc_base_naked" %}">dc_base_naked.html</a></li>
-            <li><a href="{% url "500" %}">500 error page</a></li>
-            <li><a href="{% url "404" %}">404 error page</a></li>
-        </ul>
+{% block footer_links %}
+    <div class="footer-links">
+        <nav>
+            <h2 class="ds-h5">Made by Democracy Club</h2>
+            <ul>
+                <li><a href="https://whocanivotefor.co.uk/">Who Can I Vote For?</a></li>
+                <li><a href="https://wheredoivote.co.uk/">Where Do I Vote?</a></li>
+                <li><a href="https://electionleaflets.org/">Election Leaflets</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <h2 class="ds-h5">About Democracy Club</h2>
+            <ul>
+                <li><a href="https://democracyclub.org.uk/about/">About</a></li>
+                <li><a href="https://democracyclub.org.uk/donate/">Donate</a></li>
+                <li><a href="https://democracyclub.org.uk/jobs/">Jobs</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <h2 class="ds-h5">Connect with us</h2>
+            <ul>
+                <li><a rel="me" href="https://mastodon.me.uk/@DemocracyClub">Mastodon</a></li>
+                <li><a href="https://twitter.com/democlub">Twitter</a></li>
+                <li><a href="https://github.com/DemocracyClub">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/company/democracy-club-cic">LinkedIn</a></li>
+                <li><a href="https://mailinglist.democracyclub.org.uk/subscription/form">Mailing List</a></li>
+            </ul>
+        </nav>
     </div>
-{% endblock footer_menu %}
+{% endblock footer_links %}
+
