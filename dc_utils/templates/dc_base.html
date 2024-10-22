@@ -46,15 +46,11 @@
             {% block footer_base %}
                 <footer class="ds-footer">
                     <div class="ds-block-centered ds-text-centered ds-stack">
+                        <a class="ds-logo" href="/">
+                            <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="{{ SITE_TITLE }}" width="{{ SITE_LOGO_WIDTH|default:'80' }}">
+                        </a>
                         {% block footer_links %}
-                            {% comment %} this will be customised by the project {% endcomment %}
                         {% endblock footer_links %}
-
-                        {% block footer_info %}
-                            <a class="ds-logo" href="/">
-                                <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="{{ SITE_TITLE }}" width="{{ SITE_LOGO_WIDTH|default:'80' }}">
-                            </a>
-                        {% endblock footer_info %}
 
                         {% if LANGUAGE_CODE == 'cy' %}
                             {% include 'includes/cy-footer.html' %}
