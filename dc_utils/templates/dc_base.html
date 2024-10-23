@@ -46,28 +46,17 @@
             {% block footer_base %}
                 <footer class="ds-footer">
                     <div class="ds-block-centered ds-text-centered ds-stack">
-                        {% block mailing_list %}
-                            <div class="ds-dark">
-                                <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
-                                    {% if LANGUAGE_CODE == 'cy' %}
-                                        Ymunwch â'n rhestr bostio
-                                    {% else %}
-                                        Join our mailing list
-                                    {% endif %}
-                                </a>
-                            </div>
-                        {% endblock mailing_list %}
-                        {% block footer_menu %}
-                        {% endblock footer_menu %}
-                        {% block footer_logo %}
-                            {% if LANGUAGE_CODE == 'cy' %}
-                                {% include 'includes/cy-footer.html' %}
-                            {% else %}
-                                {% include 'includes/en-footer.html' %}
-                            {% endif %}
-                        {% endblock footer_logo %}
-                        {% block extra_footer_text %}
-                        {% endblock extra_footer_text %}
+                        <a class="ds-logo" href="/">
+                            <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="{{ SITE_TITLE }}" width="{{ SITE_LOGO_WIDTH|default:'80' }}">
+                        </a>
+                        {% block footer_links %}
+                        {% endblock footer_links %}
+
+                        {% if LANGUAGE_CODE == 'cy' %}
+                            {% include 'includes/cy-footer.html' %}
+                        {% else %}
+                            {% include 'includes/en-footer.html' %}
+                        {% endif %}
                     </div>
                 </footer>
             {% endblock footer_base %}

@@ -6,7 +6,7 @@ repos:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
       - id: ruff-format
--   repo: https://github.com/rtts/djhtml
+  - repo: https://github.com/rtts/djhtml
     rev: v1.4.9
     hooks:
-    - id: djhtml
+      - id: djhtml
