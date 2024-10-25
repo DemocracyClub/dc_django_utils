@@ -59,15 +59,19 @@
                             </a>
                         </div>
                     {% endblock mailing_list %}
+                    <div class="ds-copyright">
+                        {% block footer_copyright %}
+                            {% if LANGUAGE_CODE == 'cy' %}
+                                {% include 'includes/cy-footer-copyright.html' %}
+                            {% else %}
+                                {% include 'includes/en-footer-copyright.html' %}
+                            {% endif %}
+                        {% endblock %}
+                        {% block extra_footer_copyright_text %}
+                        {% endblock extra_footer_copyright_text %}
+                    </div>
 
-                    {% if LANGUAGE_CODE == 'cy' %}
-                        {% include 'includes/cy-footer.html' %}
-                    {% else %}
-                        {% include 'includes/en-footer.html' %}
-                    {% endif %}
 
-                    {% block extra_footer_text %}
-                    {% endblock extra_footer_text %}
                 </footer>
             {% endblock footer_base %}
         </div>
