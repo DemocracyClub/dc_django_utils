@@ -18,7 +18,7 @@ def dc_server_error(request, template_name=ERROR_500_TEMPLATE_NAME):
         "site_logo": getattr(settings, "SITE_LOGO", "/images/logo_icon.svg"),
         "site_title": getattr(settings, "SITE_TITLE", "Democracy Club"),
         "STATIC_URL": getattr(settings, "STATIC_URL"),
-        "SITE_LOGO_WIDTH": getattr(settings, "SITE_LOGO_WIDTH", 80),
+        "SITE_LOGO_WIDTH": getattr(settings, "SITE_LOGO_WIDTH", 72),
     }
     try:
         template = loader.get_template(template_name)
