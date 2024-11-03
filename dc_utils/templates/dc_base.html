@@ -14,7 +14,8 @@
             {% block header_base %}
                 <header class="ds-header">
                     <a class="ds-logo" href="/">
-                        <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="Democracy Club logo" width="72">
+                        <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg"
+                             alt="Democracy Club logo" width="{{ SITE_LOGO_WIDTH }}">
                         <span>{{ SITE_TITLE }}{% block language_code %}{% endblock language_code %}</span>
                     </a>
                     {% block site_menu %}{% endblock site_menu %}
@@ -45,30 +46,37 @@
 
             {% block footer_base %}
                 <footer class="ds-footer">
-                    <div class="ds-block-centered ds-text-centered ds-stack">
-                        {% block mailing_list %}
-                            <div class="ds-dark">
-                                <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
-                                    {% if LANGUAGE_CODE == 'cy' %}
-                                        Ymunwch â'n rhestr bostio
-                                    {% else %}
-                                        Join our mailing list
-                                    {% endif %}
-                                </a>
-                            </div>
-                        {% endblock mailing_list %}
-                        {% block footer_menu %}
-                        {% endblock footer_menu %}
-                        {% block footer_logo %}
+                    {% block footer_logo %}
+                        {# Note we need both an inline style and width here: with CSS the design system #}
+                        {# sets the width to 100% and without the default is 100% #}
+                        <img src="{% static 'images/logo_icon.svg' %}" style="width:{{ SITE_LOGO_WIDTH }}px" width="{{ SITE_LOGO_WIDTH }}"
+                             alt="Democracy Club logo"/>{% endblock footer_logo %}
+                    {% block footer_menu %}{% endblock footer_menu %}
+
+                    {% block mailing_list %}
+                        <div class="ds-dark">
+                            <a class="ds-cta ds-cta-blue" href="https://mailinglist.democracyclub.org.uk/subscription/form">
+                                {% if LANGUAGE_CODE == 'cy' %}
+                                    Ymunwch â'n rhestr bostio
+                                {% else %}
+                                    Join our mailing list
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% endblock mailing_list %}
+                    <div class="ds-copyright">
+                        {% block footer_copyright %}
                             {% if LANGUAGE_CODE == 'cy' %}
-                                {% include 'includes/cy-footer.html' %}
+                                {% include 'includes/cy-footer-copyright.html' %}
                             {% else %}
-                                {% include 'includes/en-footer.html' %}
+                                {% include 'includes/en-footer-copyright.html' %}
                             {% endif %}
-                        {% endblock footer_logo %}
-                        {% block extra_footer_text %}
-                        {% endblock extra_footer_text %}
+                        {% endblock %}
+                        {% block extra_footer_copyright_text %}
+                        {% endblock extra_footer_copyright_text %}
                     </div>
+
+
                 </footer>
             {% endblock footer_base %}
         </div>
