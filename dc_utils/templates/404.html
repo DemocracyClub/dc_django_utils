@@ -3,26 +3,28 @@
     <head>
         <meta charset="utf-8">
         <title>
-            Page Not found
+            Page not found
         </title>
+        <link rel="stylesheet" href="http://dc-shared-frontend-assets.s3-website.eu-west-2.amazonaws.com/styles.css">
     </head>
     <body class="ds-width-full">
         <div class="ds-page">
             <p><a class="ds-skip-link" href="#main">skip to content</a></p>
-            <header role="banner">
+            <header class="ds-header">
                 <div class="container">
-                    <a href="/">
-                        <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="{% if site_title %}{{ site_title }} logo{% endif %}" width="72">
+                    <a class="ds-logo" href="/">
+                        <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="Democracy Club logo" width="72">
+                        <span>{{ SITE_TITLE|default:"democracy<br>club" }}{% block language_code %}{% endblock language_code %}</span>
                     </a>
                 </div>
             </header>
             <main id="main" tabindex="-1" class="ds-stack">
                 <div class="ds-card">
-                    <h2>404</h2>
-                    <p>Sorry, we can't find the page you were looking for.</p>
-                    <p>Try going <a href="/">going to the home page and starting from there</a>.</p>
-                    <p>If you think we've made a mistake, please
-                        <a href="https://democracyclub.org.uk/contact/">contact us</a>.</p>
+                    <h1>404: Page not found</h1>
+                    <p>It looks like the page you're trying to access can't be found.</p>
+                    <p>If you think this is a mistake, please
+                        <a href="https://democracyclub.org.uk/contact/">contact us</a>.
+                    </p>
                 </div>
             </main>
         </div>

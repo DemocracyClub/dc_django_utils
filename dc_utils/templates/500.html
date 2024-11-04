@@ -1,4 +1,3 @@
-{% extends "dc_base_naked.html" %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,14 +5,17 @@
         <title>
             Server Error
         </title>
+        <link rel="stylesheet" href="http://dc-shared-frontend-assets.s3-website.eu-west-2.amazonaws.com/styles.css">
+
     </head>
     <body class="ds-width-full">
         <div class="ds-page">
             <p><a class="ds-skip-link" href="#main">skip to content</a></p>
-            <header role="banner">
+            <header class="ds-header">
                 <div class="container">
-                    <a href="/">
+                    <a class="ds-logo" href="/">
                         <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="Democracy Club logo" width="72">
+                        <span>{{ SITE_TITLE|default:"democracy<br>club" }}{% block language_code %}{% endblock language_code %}</span>
                     </a>
                 </div>
             </header>
