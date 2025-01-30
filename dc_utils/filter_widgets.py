@@ -28,6 +28,8 @@ class DSLinkWidget(LinkWidget):
             self.data = {}
         if value is None:
             value = ""
+        self.data = self.data.copy()
+        self.data.pop("page", None)
         self.build_attrs(self.attrs, extra_attrs=attrs)
         output = []
         options = self.render_options(choices, [value], name)
