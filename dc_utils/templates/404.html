@@ -9,15 +9,17 @@
     </head>
     <body class="ds-width-full">
         <div class="ds-page">
-            <p><a class="ds-skip-link" href="#main">skip to content</a></p>
-            <header class="ds-header">
-                <div class="container">
-                    <a class="ds-logo" href="/">
-                        <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="Democracy Club logo" width="72">
-                        <span>{{ SITE_TITLE|default:"democracy<br>club" }}{% block language_code %}{% endblock language_code %}</span>
-                    </a>
-                </div>
-            </header>
+            <div data-nosnippet>
+                <p><a class="ds-skip-link" href="#main">skip to content</a></p>
+                <header class="ds-header">
+                    <div class="container">
+                        <a class="ds-logo" href="/">
+                            <img src="https://dc-shared-frontend-assets.s3.eu-west-2.amazonaws.com/images/logo_icon.svg" alt="Democracy Club logo" width="72">
+                            <span>{{ SITE_TITLE|default:"democracy<br>club" }}{% block language_code %}{% endblock language_code %}</span>
+                        </a>
+                    </div>
+                </header>
+            </div>
             <main id="main" tabindex="-1" class="ds-stack">
                 <div class="ds-card">
                     <h1>404: Page not found</h1>
