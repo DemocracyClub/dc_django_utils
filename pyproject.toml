@@ -7,7 +7,7 @@ authors = [{name = "Sym Roe"}, {name = "Virginia Dooley"}]
 
 dependencies = [
     "django>=4.2",
-    "django-pipeline>=3.0.0",
+    "django-pipeline>=4.1.0",
     "markdown",
     "django-localflavor>=4.0",
     "setuptools>=69.2.0",
