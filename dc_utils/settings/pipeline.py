@@ -2,7 +2,10 @@ import os
 
 root_path = os.path.dirname(os.path.abspath(__file__))
 
-STATICFILES_STORAGE = "dc_utils.storages.StaticStorage"
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "dc_utils.storages.StaticStorage"},
+}
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
